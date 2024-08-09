@@ -5,7 +5,7 @@ class_name Enemy
 @export var player: Player
 
 var target = Vector2.ZERO
-const SPEED = 100.0
+const SPEED = 30.0
 
 func _ready():
 	pass

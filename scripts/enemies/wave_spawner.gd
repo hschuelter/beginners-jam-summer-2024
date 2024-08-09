@@ -40,5 +40,6 @@ func spawn_enemy(position: Vector2) -> void:
 	print("spawnei")
 	
 func _on_spawn_timer_timeout() -> void:
-	var position: Vector2 = get_random_spawn_point()
-	spawn_enemy(position)
+	#var position: Vector2 = get_random_spawn_point()
+	for pos in spawn_points:
+		spawn_enemy(pos)

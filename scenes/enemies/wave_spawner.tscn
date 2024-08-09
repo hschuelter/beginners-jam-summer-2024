@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bt3i30irs2f48"]
 
-[ext_resource type="Script" path="res://scripts/enemies/WaveSpawner.gd" id="1_v54g1"]
+[ext_resource type="Script" path="res://scripts/enemies/wave_spawner.gd" id="1_v54g1"]
 
 [node name="WaveSpawner" type="Node2D"]
 script = ExtResource("1_v54g1")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
