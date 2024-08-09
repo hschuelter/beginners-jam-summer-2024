@@ -1,11 +1,15 @@
 extends CharacterBody2D
+class_name Player
 
-const SPEED = 300.0
+const SPEED = 200.0
 
 func _physics_process(delta):
 	var input_vector = get_input_vector()
 	
 	handle_movement(input_vector, delta)
+	
+	if(Input.is_action_just_pressed("ui_accept")):
+		print(self.global_position)
 
 func get_input_vector() -> Vector2:
 	var input_vector = Vector2.ZERO

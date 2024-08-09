@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=4 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="PackedScene" uid="uid://dc7e8d6t11xfm" path="res://scenes/player.tscn" id="1_yfxmw"]
+[ext_resource type="PackedScene" uid="uid://bt3i30irs2f48" path="res://scenes/enemies/wave_spawner.tscn" id="3_dev7s"]
+[ext_resource type="Texture2D" uid="uid://dkddkwwjwo7y4" path="res://icon.svg" id="4_gdlpp"]
 
 [node name="World" type="Node2D"]
-position = Vector2(149, 91)
 
 [node name="Player" parent="." instance=ExtResource("1_yfxmw")]
+position = Vector2(76, 19)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="WaveSpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_dev7s")]
+player = NodePath("../Player")
+
+[node name="WorldCenter" type="Sprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_gdlpp")
