@@ -5,14 +5,10 @@
 [ext_resource type="Script" path="res://scripts/day_night_cycle.gd" id="1_jqcbh"]
 [ext_resource type="PackedScene" uid="uid://dc7e8d6t11xfm" path="res://scenes/player.tscn" id="1_yfxmw"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="2_wl4mv"]
+[ext_resource type="LabelSettings" uid="uid://cmklqdckfbc4w" path="res://ui/fonts/default_label.tres" id="3_7ewr0"]
 [ext_resource type="PackedScene" uid="uid://bt3i30irs2f48" path="res://scenes/enemies/wave_spawner.tscn" id="3_dev7s"]
 [ext_resource type="Texture2D" uid="uid://dkddkwwjwo7y4" path="res://icon.svg" id="4_gdlpp"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_yp4b7"]
-font_size = 6
-
-[sub_resource type="LabelSettings" id="LabelSettings_pfyej"]
-font_size = 6
+[ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="8_xv8j2"]
 
 [sub_resource type="Gradient" id="Gradient_eww4w"]
 offsets = PackedFloat32Array(0, 0.173737, 0.355556, 0.480808, 0.573737, 0.6875, 1)
@@ -38,12 +34,11 @@ sources/0 = SubResource("TileSetAtlasSource_kioex")
 script = ExtResource("1_4dssi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("2_wl4mv")
 
 [node name="DayNightCycleUI" type="Node2D" parent="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DayNightCycleUI"]
+[node name="BG" type="ColorRect" parent="CanvasLayer/DayNightCycleUI"]
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 38.0
@@ -56,7 +51,7 @@ offset_top = 1.0
 offset_right = 38.0
 offset_bottom = 10.0
 text = "Day 0"
-label_settings = SubResource("LabelSettings_yp4b7")
+label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -66,7 +61,27 @@ offset_top = 10.0
 offset_right = 38.0
 offset_bottom = 19.0
 text = "00:00 am"
-label_settings = SubResource("LabelSettings_pfyej")
+label_settings = ExtResource("3_7ewr0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResourcesUI" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ResourcesUI"]
+offset_left = 279.0
+offset_top = 1.0
+offset_right = 319.0
+offset_bottom = 20.0
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="ResourcesLabel" type="Label" parent="CanvasLayer/ResourcesUI"]
+offset_left = 279.0
+offset_top = 1.0
+offset_right = 319.0
+offset_bottom = 20.0
+text = "100
+"
+label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -90,3 +105,7 @@ player = NodePath("../Player")
 [node name="WorldCenter" type="Sprite2D" parent="."]
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("4_gdlpp")
+
+[node name="Tower" parent="." instance=ExtResource("8_xv8j2")]
+position = Vector2(-254, 45)
+tower_range = 80.0

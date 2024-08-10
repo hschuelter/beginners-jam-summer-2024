@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4mcce87xr4du"]
+[gd_scene load_steps=5 format=3 uid="uid://b4mcce87xr4du"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_5wk46"]
 [ext_resource type="Texture2D" uid="uid://dlvkgbjhldyc0" path="res://art/enemy/icon-enemy.svg" id="1_b77sw"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="3_w71qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccpw8"]
 size = Vector2(18, 18)
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
+disable_mode = 2
 script = ExtResource("1_5wk46")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +18,11 @@ texture = ExtResource("1_b77sw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ccpw8")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_w71qq")
+
+[node name="DamageNumberOrigin" type="Node2D" parent="."]
+position = Vector2(0, -15)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
