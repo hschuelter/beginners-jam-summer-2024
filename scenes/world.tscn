@@ -67,7 +67,7 @@ vertical_alignment = 1
 
 [node name="ResourcesUI" type="Node2D" parent="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ResourcesUI"]
+[node name="BG" type="ColorRect" parent="CanvasLayer/ResourcesUI"]
 offset_left = 279.0
 offset_top = 1.0
 offset_right = 319.0
@@ -85,9 +85,67 @@ label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ToolboxUI" type="Node2D" parent="CanvasLayer"]
+
+[node name="BG" type="ColorRect" parent="CanvasLayer/ToolboxUI"]
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 220.0
+offset_bottom = 176.0
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="GunLabel" type="Label" parent="CanvasLayer/ToolboxUI"]
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 132.0
+offset_bottom = 176.0
+text = "Gun"
+label_settings = ExtResource("3_7ewr0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selected" type="ColorRect" parent="CanvasLayer/ToolboxUI/GunLabel"]
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(1, 1, 1, 0.313726)
+
+[node name="TowerLabel" type="Label" parent="CanvasLayer/ToolboxUI"]
+offset_left = 144.0
+offset_top = 160.0
+offset_right = 176.0
+offset_bottom = 176.0
+text = "Tower
+"
+label_settings = ExtResource("3_7ewr0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selected" type="ColorRect" parent="CanvasLayer/ToolboxUI/TowerLabel"]
+visible = false
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(1, 1, 1, 0.313726)
+
+[node name="RepairLabel" type="Label" parent="CanvasLayer/ToolboxUI"]
+offset_left = 188.0
+offset_top = 160.0
+offset_right = 220.0
+offset_bottom = 176.0
+text = "Repair"
+label_settings = ExtResource("3_7ewr0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Selected" type="ColorRect" parent="CanvasLayer/ToolboxUI/RepairLabel"]
+visible = false
+offset_right = 32.0
+offset_bottom = 16.0
+color = Color(1, 1, 1, 0.313726)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
+ingame_speed_rate = 30.0
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bv4sy")
@@ -108,4 +166,3 @@ texture = ExtResource("4_gdlpp")
 
 [node name="Tower" parent="." instance=ExtResource("8_xv8j2")]
 position = Vector2(-254, 45)
-tower_range = 80.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4mcce87xr4du"]
+[gd_scene load_steps=6 format=3 uid="uid://b4mcce87xr4du"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_5wk46"]
 [ext_resource type="Texture2D" uid="uid://dlvkgbjhldyc0" path="res://art/enemy/icon-enemy.svg" id="1_b77sw"]
-[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="3_w71qq"]
+[ext_resource type="PackedScene" uid="uid://j8exgj216fpn" path="res://scenes/components/health_component.tscn" id="3_j6qdy"]
+[ext_resource type="PackedScene" uid="uid://nffcgvpomxi8" path="res://scenes/components/drop_component.tscn" id="4_oc0y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccpw8"]
 size = Vector2(18, 18)
@@ -10,6 +11,7 @@ size = Vector2(18, 18)
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 disable_mode = 2
 script = ExtResource("1_5wk46")
+drop_rate = 0.9
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.403922, 0.290196, 1)
@@ -19,8 +21,9 @@ texture = ExtResource("1_b77sw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ccpw8")
 
-[node name="HealthComponent" type="Node2D" parent="."]
-script = ExtResource("3_w71qq")
+[node name="HealthComponent" parent="." instance=ExtResource("3_j6qdy")]
+
+[node name="DropComponent" parent="." instance=ExtResource("4_oc0y4")]
 
 [node name="DamageNumberOrigin" type="Node2D" parent="."]
 position = Vector2(0, -15)
