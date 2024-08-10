@@ -8,9 +8,9 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var spawn_points = [
-	#Vector2(    0, -180), # North
-	#Vector2(    0,  180), # South
-	#Vector2(  360,    0), # East
+	Vector2(    0, -180), # North
+	Vector2(    0,  180), # South
+	Vector2(  360,    0), # East
 	Vector2( -360,    0)  # West
 ]
 

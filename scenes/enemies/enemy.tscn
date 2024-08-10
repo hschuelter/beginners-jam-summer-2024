@@ -11,7 +11,7 @@ size = Vector2(18, 18)
 [node name="Enemy" type="Area2D" groups=["enemy"]]
 disable_mode = 2
 script = ExtResource("1_5wk46")
-drop_rate = 0.9
+speed = 120.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.403922, 0.290196, 1)

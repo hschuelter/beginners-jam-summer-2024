@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4uy65mo66euk"]
+
+[ext_resource type="Texture2D" uid="uid://dkddkwwjwo7y4" path="res://icon.svg" id="1_atrgx"]
+[ext_resource type="Script" path="res://scripts/buildings/wall.gd" id="1_s4nys"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="3_s4yhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5bo"]
+size = Vector2(6, 50)
+
+[node name="Wall" type="Area2D"]
+script = ExtResource("1_s4nys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.046875, 0.375)
+texture = ExtResource("1_atrgx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xg5bo")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_s4yhr")
+
+[node name="DamageNumberOrigin" type="Node2D" parent="."]
+position = Vector2(1, -27)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

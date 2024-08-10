@@ -14,7 +14,8 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 @export var max_health: float = 30
 @export var drop_rate: float = 0.30
 @export var drop_value: int = 2
-@export var speed = 30.0
+@export var speed: float = 30.0
+@export var damage: float = 10.0
 
 var player: Player
 var target = Vector2.ZERO
