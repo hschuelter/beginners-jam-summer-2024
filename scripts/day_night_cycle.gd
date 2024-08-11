@@ -31,4 +31,5 @@ func _recalculate_time() -> void:
 	
 	if past_minute != minute:
 		past_minute = minute
+		WorldState.set_current_hour(hour, minute)
 		time_tick.emit(day, hour, minute)

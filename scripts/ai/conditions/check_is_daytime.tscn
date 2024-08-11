@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gjq0eimxrk22"]
+
+[ext_resource type="Script" path="res://scripts/ai/conditions/check_is_daytime.gd" id="1_ci1cf"]
+
+[node name="CheckIsDaytime" type="Node2D"]
+script = ExtResource("1_ci1cf")

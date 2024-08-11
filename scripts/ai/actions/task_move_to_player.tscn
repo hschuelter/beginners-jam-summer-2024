@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ywi8rrhjtlj"]
+
+[ext_resource type="Script" path="res://scripts/ai/actions/task_move_to_player.gd" id="1_vmmnh"]
+
+[node name="TaskMoveToPlayer" type="Node"]
+script = ExtResource("1_vmmnh")

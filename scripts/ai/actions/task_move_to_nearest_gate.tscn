@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbtn001b5w05g"]
+
+[ext_resource type="Script" path="res://scripts/ai/actions/task_move_to_nearest_gate.gd" id="1_463sc"]
+
+[node name="TaskMoveToNearestGate" type="Node"]
+script = ExtResource("1_463sc")

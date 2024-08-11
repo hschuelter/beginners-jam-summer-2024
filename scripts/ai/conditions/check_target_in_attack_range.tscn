@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://uqotfy5ltv88"]
+
+[ext_resource type="Script" path="res://scripts/ai/conditions/check_target_in_attack_range.gd" id="1_m2xy8"]
+
+[node name="CheckTargetInAttackRange" type="Node"]
+script = ExtResource("1_m2xy8")

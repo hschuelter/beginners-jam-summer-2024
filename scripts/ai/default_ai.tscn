@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0wpmora2tif6"]
+
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_d3tql"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="2_3ad37"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_c4eio"]
+[ext_resource type="PackedScene" uid="uid://cthkjreiesu01" path="res://scripts/ai/conditions/check_player_in_fov.tscn" id="4_f0sag"]
+[ext_resource type="PackedScene" uid="uid://uqotfy5ltv88" path="res://scripts/ai/conditions/check_target_in_attack_range.tscn" id="5_hh84m"]
+[ext_resource type="PackedScene" uid="uid://1ywi8rrhjtlj" path="res://scripts/ai/actions/task_move_to_player.tscn" id="5_v44g2"]
+[ext_resource type="PackedScene" uid="uid://bfq3iypc64xch" path="res://scripts/ai/actions/task_attack.tscn" id="6_oe5u8"]
+[ext_resource type="PackedScene" uid="uid://gjq0eimxrk22" path="res://scripts/ai/conditions/check_is_daytime.tscn" id="6_xhokv"]
+[ext_resource type="PackedScene" uid="uid://2s8rwsp85r77" path="res://scripts/ai/actions/task_wait.tscn" id="7_6sxtn"]
+[ext_resource type="PackedScene" uid="uid://cbtn001b5w05g" path="res://scripts/ai/actions/task_move_to_nearest_gate.tscn" id="10_04i1q"]
+
+[node name="DefaultAi" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_d3tql")
+blackboard = NodePath("@Node@72663")
+actor = NodePath("")
+
+[node name="Either" type="Node" parent="."]
+script = ExtResource("2_3ad37")
+
+[node name="Attack" type="Node" parent="Either"]
+script = ExtResource("3_c4eio")
+
+[node name="CheckTargetInAttackRange" parent="Either/Attack" instance=ExtResource("5_hh84m")]
+
+[node name="TaskAttack" parent="Either/Attack" instance=ExtResource("6_oe5u8")]
+
+[node name="Follow" type="Node" parent="Either"]
+script = ExtResource("3_c4eio")
+
+[node name="CheckPlayerInFov" parent="Either/Follow" instance=ExtResource("4_f0sag")]
+
+[node name="TaskMoveToPlayer" parent="Either/Follow" instance=ExtResource("5_v44g2")]
+
+[node name="Stand" type="Node" parent="Either"]
+script = ExtResource("3_c4eio")
+
+[node name="CheckIsDaytime" parent="Either/Stand" instance=ExtResource("6_xhokv")]
+
+[node name="TaskWait" parent="Either/Stand" instance=ExtResource("7_6sxtn")]
+
+[node name="TaskMoveToNearestGate" parent="Either" instance=ExtResource("10_04i1q")]
