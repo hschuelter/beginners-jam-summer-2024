@@ -13,6 +13,7 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 @onready var health_component = $HealthComponent
 #endregion
 
+
 @export var max_health: float = 30
 @export var gates: Array[Node]
 @export var drop_rate: float = 0.30

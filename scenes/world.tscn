@@ -150,11 +150,11 @@ offset_right = 32.0
 offset_bottom = 16.0
 color = Color(1, 1, 1, 0.313726)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="DayNightCycle" type="CanvasModulate" parent="."]
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
-ingame_speed_rate = 30.0
-initial_hour = null
+ingame_speed_rate = 10.0
+initial_hour = 17
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bv4sy")
@@ -165,6 +165,8 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 1, 65535, 0, 1, -65536, 0, 1, 0, 0, 
 position = Vector2(76, 19)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.8, 0.8)
+position_smoothing_speed = 10.0
 
 [node name="WorldCenter" type="Sprite2D" parent="."]
 scale = Vector2(0.12, 0.12)
@@ -173,16 +175,41 @@ texture = ExtResource("4_gdlpp")
 [node name="Tower" parent="." instance=ExtResource("8_xv8j2")]
 position = Vector2(-254, 45)
 
-[node name="WallWest" parent="." instance=ExtResource("10_07xt7")]
-position = Vector2(-40, 0)
+[node name="Walls" type="Node2D" parent="."]
 
-[node name="WallEast" parent="." instance=ExtResource("10_07xt7")]
-position = Vector2(40, 0)
-
-[node name="WallNorth" parent="." instance=ExtResource("10_07xt7")]
-position = Vector2(0, -40)
+[node name="WallNorth" parent="Walls" instance=ExtResource("10_07xt7")]
+position = Vector2(0, -80)
 rotation = 1.5708
 
-[node name="WallSouth" parent="." instance=ExtResource("10_07xt7")]
-position = Vector2(0, 40)
+[node name="HealthComponent" parent="Walls/WallNorth" index="3"]
+position = Vector2(5, -1.71661e-05)
+rotation = -1.5708
+
+[node name="DamageNumberOrigin" parent="Walls/WallNorth" index="4"]
+position = Vector2(-4, 1.43051e-05)
+
+[node name="CollisionShape2D" parent="Walls/WallNorth/MouseHoverRange" index="0"]
+visible = false
+
+[node name="WallEast" parent="Walls" instance=ExtResource("10_07xt7")]
+position = Vector2(80, 0)
+
+[node name="WallSouth" parent="Walls" instance=ExtResource("10_07xt7")]
+position = Vector2(0, 80)
 rotation = 1.5708
+
+[node name="HealthComponent" parent="Walls/WallSouth" index="3"]
+position = Vector2(5, -1.71661e-05)
+rotation = -1.5708
+
+[node name="DamageNumberOrigin" parent="Walls/WallSouth" index="4"]
+position = Vector2(-4, 1.43051e-05)
+
+[node name="CollisionShape2D" parent="Walls/WallSouth/MouseHoverRange" index="0"]
+visible = false
+
+[node name="WallWest" parent="Walls" instance=ExtResource("10_07xt7")]
+position = Vector2(-80, 0)
+
+[editable path="Walls/WallNorth"]
+[editable path="Walls/WallSouth"]

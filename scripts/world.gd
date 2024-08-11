@@ -1,17 +1,23 @@
 extends Node2D
 
 @onready var canvas_layer = $CanvasLayer
-@onready var canvas_modulate = $CanvasModulate
+@onready var day_night_cycle = $DayNightCycle
 @onready var player = $Player
+@onready var wave_spawner = $WaveSpawner
+@onready var walls = $Walls
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	canvas_layer.visible = true
-	canvas_modulate.time_tick.connect(canvas_layer.set_daytime)
-	player.update_resources.connect(canvas_layer.set_resources)
+	day_night_cycle.time_tick.connect(canvas_layer.set_daytime)
+	day_night_cycle.change_daytime.connect(wave_spawner.change_daytime)
+	
+	player.resources_component.update_resources.connect(canvas_layer.set_resources)
 	player.update_toolbox.connect(canvas_layer.set_toolbox)
-	pass # Replace with function body.
+	
+	for wall in walls.get_children():
+		wall.wall_selected.connect(player.set_wall)
+		wall.player = player
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

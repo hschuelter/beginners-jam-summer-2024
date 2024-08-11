@@ -13,14 +13,12 @@ var spawn_points = [
 	Vector2(  360,    0), # East
 	Vector2( -360,    0)  # West
 ]
+var can_spawn: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_timer.start()
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
@@ -35,7 +33,12 @@ func spawn_enemy(_position: Vector2) -> void:
 	
 	spawn_timer.start()
 
+func change_daytime(is_day: bool) -> void:
+	can_spawn = not is_day
+	print("can spawn? " + str(can_spawn))
+
 func _on_spawn_timer_timeout() -> void:
+	if can_spawn:
 	#var position: Vector2 = get_random_spawn_point()
-	for pos in spawn_points:
-		spawn_enemy(pos)
+		for pos in spawn_points:
+			spawn_enemy(pos)

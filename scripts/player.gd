@@ -10,6 +10,11 @@ signal update_toolbox(current_tool: int)
 @onready var gun_tool = $GunTool
 @onready var build_tool = $BuildTool
 @onready var repair_tool = $RepairTool
+@onready var health_component = $HealthComponent
+@onready var resources_component = $ResourcesComponent
+
+@export var starting_gears: int = 100
+@export var max_health: int = 10
 
 enum States {
 	GUN,
@@ -17,14 +22,17 @@ enum States {
 	REPAIR
 }
 var current_state: States = States.GUN
-
-var gears: int = 100
 var tower_cost: int = 10
+var selected_wall: Wall
 
 func _ready():
 	gun_tool.world = world
 	build_tool.world = world
 	repair_tool.world = world
+	
+	resources_component.gears = starting_gears
+	health_component.max_health = max_health
+	health_component.current_health = max_health
 	
 
 func _physics_process(delta):
@@ -37,13 +45,14 @@ func _physics_process(delta):
 			gun_tool.action()
 		
 	elif current_state == States.BUILD:
-		if(Input.is_action_just_pressed("mouse_left")) and gears >= tower_cost:
+		var can_build = resources_component.can_build(tower_cost)
+		if(Input.is_action_just_pressed("mouse_left")) and can_build:
 			build_tool.action()
-			gears -= tower_cost
-			update_resources.emit(gears)
+			resources_component.spend(tower_cost)
 	
 	elif current_state == States.REPAIR:
 		if(Input.is_action_just_pressed("mouse_left")):
+			repair_tool.wall = selected_wall
 			repair_tool.action()
 	
 
@@ -55,6 +64,12 @@ func handle_tool() -> void:
 		current_state = States.BUILD
 	if(Input.is_action_just_pressed("num_3")):
 		current_state = States.REPAIR
+	
+	if(Input.is_action_just_pressed("mouse_scroll_down")):
+		current_state = (current_state + 1) % States.size()
+	
+	if(Input.is_action_just_pressed("mouse_scroll_up")):
+		current_state = (States.size() + current_state - 1) % States.size()
 	
 	if last_state != current_state:
 		update_toolbox.emit(current_state)
@@ -73,8 +88,10 @@ func handle_movement(input_vector: Vector2, delta: float) -> void:
 	
 	move_and_slide()
 
+func set_wall(wall: Wall) -> void:
+	selected_wall = wall
+
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("drop"):
-		self.gears += area.gears
-		update_resources.emit(gears)
+		resources_component.collect(area.gears)
 		area.queue_free()

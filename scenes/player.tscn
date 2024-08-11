@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc7e8d6t11xfm"]
+[gd_scene load_steps=11 format=3 uid="uid://dc7e8d6t11xfm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_upa1n"]
 [ext_resource type="Texture2D" uid="uid://baw8crp034663" path="res://art/player-Sprite-Sheet.png" id="2_udygj"]
 [ext_resource type="Script" path="res://scripts/tools/gun_tool.gd" id="3_jyulw"]
 [ext_resource type="Script" path="res://scripts/tools/build_tool.gd" id="4_qh6we"]
 [ext_resource type="Script" path="res://scripts/tools/repair_tool.gd" id="5_ll2o8"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="6_7spha"]
+[ext_resource type="Script" path="res://scripts/components/resources_component.gd" id="7_w0nrp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_humg7"]
 radius = 12.8571
@@ -49,7 +51,9 @@ shape = SubResource("CapsuleShape2D_v1e41")
 [node name="GunTool" type="Node2D" parent="."]
 position = Vector2(-1.42857, 0)
 script = ExtResource("3_jyulw")
-bullet_damage = 10
+
+[node name="ShootTimer" type="Timer" parent="GunTool"]
+wait_time = 0.05
 
 [node name="BuildTool" type="Node2D" parent="."]
 position = Vector2(-1.42857, 1.42857)
@@ -58,4 +62,14 @@ script = ExtResource("4_qh6we")
 [node name="RepairTool" type="Node2D" parent="."]
 script = ExtResource("5_ll2o8")
 
+[node name="RepairTimer" type="Timer" parent="RepairTool"]
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("6_7spha")
+
+[node name="ResourcesComponent" type="Node2D" parent="."]
+script = ExtResource("7_w0nrp")
+
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
+[connection signal="timeout" from="GunTool/ShootTimer" to="GunTool" method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="RepairTool/RepairTimer" to="RepairTool" method="_on_repair_timer_timeout"]
