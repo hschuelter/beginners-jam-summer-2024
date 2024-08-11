@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2s8rwsp85r77"]
+
+[ext_resource type="Script" path="res://scripts/ai/actions/task_wait.gd" id="1_pu6yl"]
+
+[node name="TaskWait" type="Node"]
+script = ExtResource("1_pu6yl")

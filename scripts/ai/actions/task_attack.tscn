@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfq3iypc64xch"]
+
+[ext_resource type="Script" path="res://scripts/ai/actions/task_attack.gd" id="1_0anfp"]
+
+[node name="TaskAttack" type="Node"]
+script = ExtResource("1_0anfp")
