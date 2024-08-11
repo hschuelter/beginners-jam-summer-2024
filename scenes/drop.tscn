@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://gx612wc4eepu"]
+
+[ext_resource type="Script" path="res://scripts/drop.gd" id="1_43msy"]
+[ext_resource type="Texture2D" uid="uid://dkddkwwjwo7y4" path="res://icon.svg" id="1_yxivt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mxgs"]
+radius = 7.0
+
+[node name="Drop" type="Area2D" groups=["drop"]]
+script = ExtResource("1_43msy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("1_yxivt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3mxgs")

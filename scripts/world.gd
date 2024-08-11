@@ -9,6 +9,7 @@ func _ready():
 	canvas_layer.visible = true
 	canvas_modulate.time_tick.connect(canvas_layer.set_daytime)
 	player.update_resources.connect(canvas_layer.set_resources)
+	player.update_toolbox.connect(canvas_layer.set_toolbox)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

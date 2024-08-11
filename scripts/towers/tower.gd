@@ -1,18 +1,23 @@
 extends Node2D
 class_name Tower
 
-@export var tower_range: float = 60
+const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
+
+@export var tower_range: float = 80
 @export var tower_damage: float = 2
 
 @onready var world = $".."
 @onready var collision_shape_2d = $Range/CollisionShape2D
-@onready var bullet_scene: Resource = preload("res://scenes/bullet.tscn")
-
 @onready var shoot_timer = $ShootTimer
-var can_shoot: bool = false
 
-var target: Enemy
+var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
+var target: Enemy
+
+static func create_tower() -> Tower:
+	var new_tower: Tower = TOWER_SCENE.instantiate()
+	
+	return new_tower
 
 func _ready():
 	shoot_timer.start()
@@ -49,14 +54,10 @@ func _get_enemy() -> Enemy:
 	return enemy
 
 func shoot() -> void:
-	#print("Current target " + target.name)
-	var bullet = bullet_scene.instantiate()
-	
+	var bullet: TowerBullet = TowerBullet.create_bullet(tower_damage, target, "Bullet")
 	world.add_child(bullet)
 	bullet.global_position = self.global_position
-	bullet.target = target
-	bullet.damage = tower_damage
-	bullet.name = "Bullet"
+	
 	shoot_timer.start()
 	can_shoot = false
 

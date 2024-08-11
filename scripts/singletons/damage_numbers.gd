@@ -1,5 +1,8 @@
 extends Node
 
+const font_size: int = 8
+const outline_size: int = 3
+
 func display_number(value: int, position: Vector2, is_critical: bool = false):
 	var number = Label.new()
 	number.global_position = position
@@ -14,9 +17,9 @@ func display_number(value: int, position: Vector2, is_critical: bool = false):
 		color = '#FFF8'
 	
 	number.label_settings.font_color = color
-	number.label_settings.font_size = 8
+	number.label_settings.font_size = font_size
 	number.label_settings.outline_color = '#000'
-	number.label_settings.outline_size = 1
+	number.label_settings.outline_size = outline_size
 	
 	call_deferred("add_child", number)
 	

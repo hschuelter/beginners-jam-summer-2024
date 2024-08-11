@@ -8,9 +8,9 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var spawn_points = [
-	#Vector2(    0, -180), # North
-	#Vector2(    0,  180), # South
-	#Vector2(  360,    0), # East
+	Vector2(    0, -180), # North
+	Vector2(    0,  180), # South
+	Vector2(  360,    0), # East
 	Vector2( -360,    0)  # West
 ]
 
@@ -24,20 +24,17 @@ func _ready():
 func _process(delta):
 	pass
 
-	
 func get_random_spawn_point() -> Vector2:
 	var num = rng.randi_range(0, spawn_points.size() - 1)
 	return spawn_points[num]
-	
+
 func spawn_enemy(_position: Vector2) -> void:
-	var spawned_enemy: Enemy = enemy_scene.instantiate()
+	var new_enemy: Enemy = Enemy.create_enemy(player, Vector2.ZERO, world, "Enemy")
+	world.add_child(new_enemy)
+	new_enemy.global_position = _position
 	
-	spawned_enemy.player = player
-	#spawned_enemy.name = "Enemy"
-	world.add_child(spawned_enemy)
-	spawned_enemy.global_position = _position
 	spawn_timer.start()
-	
+
 func _on_spawn_timer_timeout() -> void:
 	#var position: Vector2 = get_random_spawn_point()
 	for pos in spawn_points:
