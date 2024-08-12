@@ -9,7 +9,7 @@ size = Vector2(8, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u36nj"]
 size = Vector2(20, 34)
 
-[node name="Wall" type="Area2D"]
+[node name="Wall" type="Area2D" groups=["building"]]
 script = ExtResource("1_s4nys")
 
 [node name="SpriteOutline" type="ColorRect" parent="."]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://br5odr53pkpd"]
+
+[ext_resource type="PackedScene" uid="uid://dyqqbno04tfi5" path="res://scenes/melee/melee.tscn" id="1_eyi0p"]
+[ext_resource type="Script" path="res://scripts/melee/melee_repair.gd" id="2_0tuao"]
+
+[node name="MeleeRepair" instance=ExtResource("1_eyi0p")]
+script = ExtResource("2_0tuao")

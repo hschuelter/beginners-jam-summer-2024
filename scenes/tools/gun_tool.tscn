@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://crufpohg3j3sf"]
+
+[ext_resource type="PackedScene" uid="uid://r0vxnftf76t0" path="res://scenes/tools/tool.tscn" id="1_m0gro"]
+[ext_resource type="Script" path="res://scripts/tools/gun_tool.gd" id="2_cfvan"]
+
+[node name="GunTool" instance=ExtResource("1_m0gro")]
+script = ExtResource("2_cfvan")
+bullet_damage = 1.0
+target = Vector2(0, 0)

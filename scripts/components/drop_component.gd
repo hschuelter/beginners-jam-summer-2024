@@ -13,7 +13,6 @@ func drop():
 		instantiate_drop()
 
 func instantiate_drop():
-	var new_drop: Drop = Drop.create_drop(drop_value)
+	var new_drop: Drop = Drop.create_drop(drop_value, "Drop")
 	world.add_child(new_drop)
-	new_drop.name = "Drop"
 	new_drop.global_position = self.global_position

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgg5ufdxkinc2"]
+
+[ext_resource type="PackedScene" uid="uid://r0vxnftf76t0" path="res://scenes/tools/tool.tscn" id="1_sabw0"]
+[ext_resource type="Script" path="res://scripts/tools/hammer_tool.gd" id="2_o8d2x"]
+
+[node name="HammerTool" instance=ExtResource("1_sabw0")]
+script = ExtResource("2_o8d2x")
+damage = 10

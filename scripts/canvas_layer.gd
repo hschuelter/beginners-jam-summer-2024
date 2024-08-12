@@ -16,3 +16,4 @@ func set_toolbox(tool: int) -> void:
 	toolbox_ui.get_node("GunLabel").get_node("Selected").visible = tool == 0
 	toolbox_ui.get_node("TowerLabel").get_node("Selected").visible = tool == 1
 	toolbox_ui.get_node("RepairLabel").get_node("Selected").visible = tool == 2
+	toolbox_ui.get_node("HammerLabel").get_node("Selected").visible = tool == 3

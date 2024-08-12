@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://0dj4qfdi18fm"]
+
+[ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_2rmwr"]
+[ext_resource type="PackedScene" uid="uid://j8exgj216fpn" path="res://scenes/components/health_component.tscn" id="2_oi41t"]
+[ext_resource type="PackedScene" uid="uid://nffcgvpomxi8" path="res://scenes/components/drop_component.tscn" id="3_6an2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6kgh"]
+size = Vector2(40, 40)
+
+[node name="Entity" type="Area2D" groups=["entity"]]
+script = ExtResource("1_2rmwr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+color = Color(0.404511, 0.404511, 0.404511, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_u6kgh")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_oi41t")]
+position = Vector2(0, 2)
+
+[node name="DropComponent" parent="." instance=ExtResource("3_6an2j")]

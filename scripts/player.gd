@@ -7,9 +7,11 @@ signal update_resources(gears: int)
 signal update_toolbox(current_tool: int)
 
 @onready var world = $".."
-@onready var gun_tool = $GunTool
-@onready var build_tool = $BuildTool
-@onready var repair_tool = $RepairTool
+@onready var gun_tool = %GunTool
+@onready var build_tool = %BuildTool
+@onready var repair_tool = %RepairTool
+@onready var hammer_tool = %HammerTool
+
 @onready var health_component = $HealthComponent
 @onready var resources_component = $ResourcesComponent
 
@@ -19,16 +21,19 @@ signal update_toolbox(current_tool: int)
 enum States {
 	GUN,
 	BUILD, 
-	REPAIR
+	REPAIR,
+	HAMMER
 }
 var current_state: States = States.GUN
 var tower_cost: int = 10
 var selected_wall: Wall
 
 func _ready():
+	print("Player test")
 	gun_tool.world = world
 	build_tool.world = world
 	repair_tool.world = world
+	hammer_tool.world = world
 	
 	resources_component.gears = starting_gears
 	health_component.max_health = max_health
@@ -55,6 +60,10 @@ func _physics_process(delta):
 			repair_tool.wall = selected_wall
 			repair_tool.action()
 	
+	elif current_state == States.HAMMER:
+		if(Input.is_action_just_pressed("mouse_left")):
+			hammer_tool.action()
+	
 
 func handle_tool() -> void:
 	var last_state = current_state
@@ -64,6 +73,8 @@ func handle_tool() -> void:
 		current_state = States.BUILD
 	if(Input.is_action_just_pressed("num_3")):
 		current_state = States.REPAIR
+	if(Input.is_action_just_pressed("num_4")):
+		current_state = States.HAMMER
 	
 	if(Input.is_action_just_pressed("mouse_scroll_down")):
 		current_state = (current_state + 1) % States.size()
