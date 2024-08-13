@@ -2,8 +2,8 @@ class_name Tower extends Node2D
 
 const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 
-@export var tower_range: float = 80
 @export var tower_damage: float = 10
+@export var tower_range: float = 80
 @export var tower_cooldown: float = 1.0
 
 @onready var world = $".."

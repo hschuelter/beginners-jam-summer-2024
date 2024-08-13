@@ -1,11 +1,22 @@
-class_name Table extends Node2D
+class_name Table extends Area2D
 
+signal open_upgrade_ui
+signal close_upgrade_ui
 
-# Called when the node enters the scene tree for the first time.
+@onready var outline = $Outline
+
+@export var player: Player
+@export var distance: float = 40
+
 func _ready():
-	pass # Replace with function body.
+	outline.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if global_position.distance_to(player.global_position) < distance:
+		outline.visible = true
+		if(Input.is_action_just_pressed("ui_accept")):
+			open_upgrade_ui.emit()
+	else:
+		outline.visible = false
+		close_upgrade_ui.emit()

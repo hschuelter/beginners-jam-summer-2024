@@ -26,7 +26,7 @@ var current_state: States = States.GUN
 
 enum Towers { BASIC, SLOW, SNIPER }
 var current_tower: Towers = Towers.BASIC 
-var tower_cost: int = 10
+var tower_cost: int = 1
 var mouse_on_field: bool = true
 
 func _ready():

@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_mjnln"]
 [ext_resource type="Script" path="res://scripts/towers/tower_slow.gd" id="2_yu4ut"]
 
-[node name="TowerSlow" instance=ExtResource("1_mjnln")]
+[node name="TowerSlow" groups=["slow_tower"] instance=ExtResource("1_mjnln")]
 script = ExtResource("2_yu4ut")
+tower_damage = 2.0
+tower_range = 40.0
 
 [node name="ColorRect" parent="." index="0"]
 color = Color(0.645213, 0.762612, 1, 1)

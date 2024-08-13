@@ -25,6 +25,7 @@ var target = Vector2.ZERO
 var world
 
 var is_slowed: bool = false
+var slow_value: float = 0.5
 
 static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _name: String = "") -> Enemy:
 	var new_enemy: Enemy = ENEMY_SCENE.instantiate()
@@ -54,7 +55,7 @@ func _process(delta):
 func move(direction: Vector2, delta: float) -> void:
 	var _speed = speed
 	if is_slowed:
-		_speed *= 0.5
+		_speed *= slow_value
 		
 	self.global_position += direction * _speed * delta
 
