@@ -1,9 +1,8 @@
-extends Node2D
-class_name DropComponent
+class_name DropComponent extends Node2D
 
 @onready var drop_scene: Resource = preload("res://scenes/drop.tscn")
+@onready var world = $".."
 
-var world
 var drop_rate: float
 var drop_value: int
 var rng = RandomNumberGenerator.new()

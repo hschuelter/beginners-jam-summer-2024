@@ -1,7 +1,6 @@
-extends Node2D
-class_name Entity
+class_name Entity extends Node2D
 
-@onready var world = $"../.."
+@onready var world = $".."
 @onready var health_component = $HealthComponent
 @onready var drop_component = $DropComponent
 

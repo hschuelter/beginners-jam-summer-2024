@@ -1,5 +1,4 @@
-extends Area2D
-class_name Drop
+class_name Drop extends Area2D
 
 const DROP_SCENE: Resource = preload("res://scenes/drop.tscn")
 

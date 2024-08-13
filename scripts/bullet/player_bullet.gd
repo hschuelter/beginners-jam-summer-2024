@@ -1,3 +1,1 @@
-extends Bullet
-class_name PlayerBullet
-
+class_name PlayerBullet extends Bullet

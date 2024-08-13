@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://biv3l2gn3wcfo"]
+
+[ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_v8w8h"]
+[ext_resource type="Script" path="res://scripts/towers/tower_basic.gd" id="2_n7nrq"]
+
+[node name="TowerBasic" groups=["basic_tower"] instance=ExtResource("1_v8w8h")]
+script = ExtResource("2_n7nrq")
+tower_range = 60.0

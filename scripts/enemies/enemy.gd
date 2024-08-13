@@ -1,5 +1,4 @@
-extends Area2D
-class_name Enemy
+class_name Enemy extends Area2D
 
 #region Constants
 const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
@@ -11,6 +10,7 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 @onready var hitbox: Area2D = $Hitbox 
 @onready var drop_component = $DropComponent
 @onready var health_component = $HealthComponent
+@onready var slow_timer = $SlowTimer
 #endregion
 
 
@@ -23,6 +23,9 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 var player: Player
 var target = Vector2.ZERO
 var world
+
+var is_slowed: bool = false
+var slow_value: float = 0.5
 
 static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _name: String = "") -> Enemy:
 	var new_enemy: Enemy = ENEMY_SCENE.instantiate()
@@ -44,25 +47,22 @@ func _ready():
 
 func _process(delta):
 	var direction = target - self.global_position
-	
 	move(direction.normalized(), delta)
 	
 	if(self.global_position.distance_to(target) < 5):
 		queue_free()
 
 func move(direction: Vector2, delta: float) -> void:
-	self.global_position += direction * speed * delta
+	var _speed = speed
+	if is_slowed:
+		_speed *= slow_value
+		
+	self.global_position += direction * _speed * delta
 
 func die():
 	drop_component.drop()
 	queue_free()
 
-func _on_area_entered(area):
-	if area.is_in_group("bullet"):
-		var damage = area.damage
-		health_component.damage(area.damage)
-		DamageNumbers.display_number(damage, damage_number_origin.global_position)
-		area.queue_free()
 
 
 func attack() -> void:
@@ -112,3 +112,13 @@ func is_target_a_player() -> bool:
 		.filter(func (a): return true if a.get_parent() is Player else false)
 		.is_empty()
 	)
+
+func _on_area_entered(area):
+	if area.is_in_group("bullet"):
+		var damage = area.damage
+		health_component.damage(area.damage)
+		DamageNumbers.display_number(damage, damage_number_origin.global_position)
+		area.queue_free()
+
+func _on_slow_timer_timeout():
+	is_slowed = false

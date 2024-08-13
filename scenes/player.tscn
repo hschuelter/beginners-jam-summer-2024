@@ -57,17 +57,16 @@ unique_name_in_owner = true
 
 [node name="RepairTool" parent="." instance=ExtResource("4_i2bue")]
 unique_name_in_owner = true
-action_cooldown = 0.1
+action_cooldown = 1.0
 
 [node name="HammerTool" parent="." instance=ExtResource("6_8ck1w")]
 unique_name_in_owner = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_3nk0c")]
+position = Vector2(-1.42857, 17.1429)
 
 [node name="ResourcesComponent" type="Node2D" parent="."]
+position = Vector2(1.42857, 7.14286)
 script = ExtResource("7_w0nrp")
 
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]
-[connection signal="timeout" from="GunTool/ActionTimer" to="GunTool" method="_on_action_timer_timeout"]
-
-[editable path="GunTool"]

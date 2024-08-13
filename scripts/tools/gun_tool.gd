@@ -1,5 +1,4 @@
-extends Tool
-class_name GunTool
+class_name GunTool extends Tool
 
 @export var bullet_damage: float = 1.0
 @export var target = Vector2.ZERO
@@ -13,3 +12,4 @@ func action() -> void:
 		bullet.global_position = self.global_position
 		
 		can_action = false
+		action_timer.start()

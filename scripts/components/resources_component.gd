@@ -1,5 +1,4 @@
-extends Node2D
-class_name ResourcesComponent
+class_name ResourcesComponent extends Node2D
 
 signal update_resources(gears: int)
 

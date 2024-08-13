@@ -1,11 +1,10 @@
-extends Node2D
-class_name Tool
+class_name Tool extends Node2D
 
 @onready var action_timer = $ActionTimer
 @export var action_cooldown: float = 0.5
 
 var world
-var can_action: bool = true
+var can_action: bool = false
 
 func _ready():
 	action_timer.wait_time = action_cooldown

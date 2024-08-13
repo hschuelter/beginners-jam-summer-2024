@@ -21,6 +21,7 @@ BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 DamageNumbers="*res://scripts/singletons/damage_numbers.gd"
 WorldState="*res://scripts/singletons/world_state.gd"
+UpgradeManager="*res://scripts/singletons/upgrade_manager.gd"
 
 [display]
 
