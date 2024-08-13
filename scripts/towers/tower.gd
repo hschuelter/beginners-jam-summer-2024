@@ -1,10 +1,9 @@
-extends Node2D
-class_name Tower
+class_name Tower extends Node2D
 
 const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 
 @export var tower_range: float = 80
-@export var tower_damage: float = 2
+@export var tower_damage: float = 10
 
 @onready var world = $".."
 @onready var collision_shape_2d = $Range/CollisionShape2D
@@ -14,9 +13,10 @@ var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
 var target: Enemy
 
-static func create_tower() -> Tower:
+static func create_tower(_damage: float, _name: String = "Basic Tower") -> Tower:
 	var new_tower: Tower = TOWER_SCENE.instantiate()
-	
+	new_tower.tower_damage = _damage
+	new_tower.name = _name
 	return new_tower
 
 func _ready():
@@ -65,7 +65,6 @@ func _on_range_area_entered(enemy):
 	if enemy.is_in_group("enemy"):
 		enemy_queue.push_back(enemy)
 		#print(enemy.name + " has entered")
-
 
 func _on_range_area_exited(enemy):
 	if enemy.is_in_group("enemy"):

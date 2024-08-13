@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtgwli07gx13g"]
+
+[ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_mjnln"]
+[ext_resource type="Script" path="res://scripts/towers/tower_slow.gd" id="2_yu4ut"]
+
+[node name="TowerSlow" instance=ExtResource("1_mjnln")]
+script = ExtResource("2_yu4ut")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.645213, 0.762612, 1, 1)

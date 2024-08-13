@@ -1,5 +1,4 @@
-extends Area2D
-class_name Bullet
+class_name Bullet extends Area2D
 
 const BULLET_SCENE: Resource = preload("res://scenes/bullet/bullet.tscn")
 const SPEED: float = 300

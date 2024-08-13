@@ -1,5 +1,4 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
 
 const SPEED = 200.0
 
@@ -11,7 +10,6 @@ signal update_toolbox(current_tool: int)
 @onready var build_tool = %BuildTool
 @onready var repair_tool = %RepairTool
 @onready var hammer_tool = %HammerTool
-
 @onready var health_component = $HealthComponent
 @onready var resources_component = $ResourcesComponent
 
@@ -25,15 +23,14 @@ enum States {
 	HAMMER
 }
 var current_state: States = States.GUN
+
+enum Towers { BASIC, SLOW }
+var current_tower: Towers = Towers.BASIC 
 var tower_cost: int = 10
-var selected_wall: Wall
+var mouse_on_field: bool = true
 
 func _ready():
-	print("Player test")
-	gun_tool.world = world
-	build_tool.world = world
-	repair_tool.world = world
-	hammer_tool.world = world
+	world = get_tree().get_root() 
 	
 	resources_component.gears = starting_gears
 	health_component.max_health = max_health
@@ -41,27 +38,30 @@ func _ready():
 	
 
 func _physics_process(delta):
-	var input_vector = get_input_vector()	
+	var input_vector = get_input_vector()
+	var mouse_position = get_global_mouse_position()
+	
 	handle_movement(input_vector, delta)
 	handle_tool()
 	
 	if current_state == States.GUN:
-		if(Input.is_action_just_pressed("mouse_left")):
+		if(Input.is_action_pressed("mouse_left")):
 			gun_tool.action()
 		
 	elif current_state == States.BUILD:
 		var can_build = resources_component.can_build(tower_cost)
-		if(Input.is_action_just_pressed("mouse_left")) and can_build:
+		var distance: float = self.global_position.distance_to(mouse_position)
+		if(Input.is_action_just_pressed("mouse_left")) and can_build and mouse_on_field: # and distance < 50:
+			build_tool.current_tower = self.current_tower
 			build_tool.action()
 			resources_component.spend(tower_cost)
 	
 	elif current_state == States.REPAIR:
-		if(Input.is_action_just_pressed("mouse_left")):
-			repair_tool.wall = selected_wall
+		if(Input.is_action_pressed("mouse_left")):
 			repair_tool.action()
 	
 	elif current_state == States.HAMMER:
-		if(Input.is_action_just_pressed("mouse_left")):
+		if(Input.is_action_pressed("mouse_left")):
 			hammer_tool.action()
 	
 
@@ -98,9 +98,6 @@ func handle_movement(input_vector: Vector2, delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	
 	move_and_slide()
-
-func set_wall(wall: Wall) -> void:
-	selected_wall = wall
 
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("drop"):

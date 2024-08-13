@@ -8,8 +8,8 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var spawn_points = [
-	Vector2(    0, -180), # North
-	Vector2(    0,  180), # South
+	Vector2(    0, -360), # North
+	Vector2(    0,  360), # South
 	Vector2(  360,    0), # East
 	Vector2( -360,    0)  # West
 ]
@@ -17,7 +17,6 @@ var can_spawn: bool = false
 
 func _ready():
 	spawn_timer.start()
-	pass # Replace with function body.
 
 func _process(delta):
 	pass

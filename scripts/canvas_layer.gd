@@ -3,7 +3,10 @@ extends CanvasLayer
 @onready var day_night_cycle_ui = $DayNightCycleUI
 @onready var resources_ui = $ResourcesUI
 @onready var toolbox_ui = $ToolboxUI
+@onready var tower_select_ui = $TowerSelectUI
 
+func _ready():
+	tower_select_ui.visible = false
 
 func set_daytime(day: int, hour: int, minutes: int):
 	day_night_cycle_ui.get_node("DayLabel").text = "Day %d" % [day + 1]
@@ -17,3 +20,5 @@ func set_toolbox(tool: int) -> void:
 	toolbox_ui.get_node("TowerLabel").get_node("Selected").visible = tool == 1
 	toolbox_ui.get_node("RepairLabel").get_node("Selected").visible = tool == 2
 	toolbox_ui.get_node("HammerLabel").get_node("Selected").visible = tool == 3
+	
+	tower_select_ui.visible = tool == 1

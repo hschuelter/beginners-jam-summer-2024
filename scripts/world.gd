@@ -13,11 +13,19 @@ func _ready():
 	
 	player.resources_component.update_resources.connect(canvas_layer.set_resources)
 	player.update_toolbox.connect(canvas_layer.set_toolbox)
-	
-	for wall in walls.get_children():
-		wall.wall_selected.connect(player.set_wall)
-		wall.player = player
-	
+
 
 func _process(delta):
 	pass
+
+func _on_basic_button_pressed():
+	player.current_tower = 0
+
+func _on_slow_button_pressed():
+	player.current_tower = 1
+
+func _on_mouse_entered_ui():
+	player.mouse_on_field = false
+
+func _on_mouse_exited_ui():
+	player.mouse_on_field = true

@@ -1,5 +1,4 @@
-extends Bullet
-class_name TowerBullet
+class_name TowerBullet extends Bullet
 
 const TOWER_BULLET_SCENE: Resource = preload("res://scenes/bullet/tower_bullet.tscn")
 
