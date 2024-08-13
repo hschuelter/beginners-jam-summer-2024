@@ -7,8 +7,6 @@ var world
 var can_action: bool = false
 
 func _ready():
-	world = get_tree().get_root() 
-
 	action_timer.wait_time = action_cooldown
 	action_timer.start()
 

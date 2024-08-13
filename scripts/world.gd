@@ -24,8 +24,13 @@ func _on_basic_button_pressed():
 func _on_slow_button_pressed():
 	player.current_tower = 1
 
+func _on_sniper_button_pressed():
+	player.current_tower = 2
+
+
 func _on_mouse_entered_ui():
 	player.mouse_on_field = false
 
 func _on_mouse_exited_ui():
 	player.mouse_on_field = true
+

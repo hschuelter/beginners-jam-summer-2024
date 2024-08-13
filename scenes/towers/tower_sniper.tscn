@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmqtd74a07yb"]
+
+[ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_8pmw2"]
+[ext_resource type="Script" path="res://scripts/towers/tower_sniper.gd" id="2_nsk41"]
+
+[node name="TowerSniper" instance=ExtResource("1_8pmw2")]
+script = ExtResource("2_nsk41")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.023221, 0.429784, 0.0448467, 1)

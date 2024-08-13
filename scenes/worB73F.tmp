@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=17 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="Texture2D" uid="uid://yw0t4x7py65q" path="res://art/tilemap.png" id="1_1bk3j"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_4dssi"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b4uy65mo66euk" path="res://scenes/buildings/wall.tscn" id="10_07xt7"]
 [ext_resource type="PackedScene" uid="uid://0dj4qfdi18fm" path="res://scenes/entities/entity.tscn" id="11_0psq2"]
 [ext_resource type="PackedScene" uid="uid://dtgwli07gx13g" path="res://scenes/towers/tower_slow.tscn" id="12_2u30x"]
-[ext_resource type="PackedScene" uid="uid://ddx41tbe43roa" path="res://scenes/buildings/table.tscn" id="13_lut6c"]
 
 [sub_resource type="Gradient" id="Gradient_eww4w"]
 offsets = PackedFloat32Array(0, 0.173737, 0.355556, 0.480808, 0.573737, 0.6875, 1)
@@ -237,6 +236,7 @@ vertical_alignment = 1
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
 ingame_speed_rate = 10.0
+initial_hour = 17
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bv4sy")
@@ -327,9 +327,6 @@ drop_value = 5
 
 [node name="TowerSlow" parent="." instance=ExtResource("12_2u30x")]
 position = Vector2(-338, 0)
-
-[node name="Table" parent="." instance=ExtResource("13_lut6c")]
-position = Vector2(40, -25)
 
 [connection signal="mouse_entered" from="CanvasLayer/TowerSelectUI/Background" to="." method="_on_background_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/TowerSelectUI/Background" to="." method="_on_background_mouse_exited"]

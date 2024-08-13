@@ -4,6 +4,7 @@ const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 
 @export var tower_range: float = 80
 @export var tower_damage: float = 10
+@export var tower_cooldown: float = 1.0
 
 @onready var world = $".."
 @onready var collision_shape_2d = $Range/CollisionShape2D
@@ -13,17 +14,22 @@ var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
 var target: Enemy
 
-static func create_tower(_damage: float, _name: String = "Basic Tower") -> Tower:
+static func create_tower(_damage: float, _range: float, _cooldown: float) -> Tower:
 	var new_tower: Tower = TOWER_SCENE.instantiate()
 	new_tower.tower_damage = _damage
-	new_tower.name = _name
+	new_tower.tower_range = _range
+	new_tower.tower_cooldown = _cooldown
 	return new_tower
 
 func _ready():
-	shoot_timer.start()
-	collision_shape_2d.shape.radius = tower_range
-	enemy_queue = []
-	target = null
+	var circle_shape_2d = CircleShape2D.new()
+	circle_shape_2d.radius = tower_range
+	
+	self.shoot_timer.wait_time = tower_cooldown
+	self.shoot_timer.start()
+	self.collision_shape_2d.shape = circle_shape_2d
+	self.enemy_queue = []
+	self.target = null
 
 func _process(delta):
 	if target != null and abs(self.global_position.distance_to(target.global_position)) > (tower_range + 15):

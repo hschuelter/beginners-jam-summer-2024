@@ -24,18 +24,21 @@ enum States {
 }
 var current_state: States = States.GUN
 
-enum Towers { BASIC, SLOW }
+enum Towers { BASIC, SLOW, SNIPER }
 var current_tower: Towers = Towers.BASIC 
 var tower_cost: int = 10
 var mouse_on_field: bool = true
 
 func _ready():
-	world = get_tree().get_root() 
+	gun_tool.world = world
+	build_tool.world = world
+	repair_tool.world = world
+	hammer_tool.world = world
 	
 	resources_component.gears = starting_gears
 	health_component.max_health = max_health
 	health_component.current_health = max_health
-	
+
 
 func _physics_process(delta):
 	var input_vector = get_input_vector()
