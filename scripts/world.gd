@@ -7,6 +7,7 @@ extends Node2D
 @onready var walls = $Walls
 @onready var table = $Table
 
+
 func _ready():
 	canvas_layer.visible = true
 	day_night_cycle.time_tick.connect(canvas_layer.set_daytime)
