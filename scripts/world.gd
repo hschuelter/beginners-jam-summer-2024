@@ -6,6 +6,7 @@ extends Node2D
 @onready var wave_spawner = $WaveSpawner
 @onready var walls = $Walls
 
+
 func _ready():
 	canvas_layer.visible = true
 	day_night_cycle.time_tick.connect(canvas_layer.set_daytime)

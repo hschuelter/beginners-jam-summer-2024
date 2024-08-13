@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=17 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="Texture2D" uid="uid://yw0t4x7py65q" path="res://art/tilemap.png" id="1_1bk3j"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_4dssi"]
@@ -8,6 +8,7 @@
 [ext_resource type="LabelSettings" uid="uid://cmklqdckfbc4w" path="res://ui/fonts/default_label.tres" id="3_7ewr0"]
 [ext_resource type="PackedScene" uid="uid://bt3i30irs2f48" path="res://scenes/enemies/wave_spawner.tscn" id="3_dev7s"]
 [ext_resource type="Texture2D" uid="uid://dkddkwwjwo7y4" path="res://icon.svg" id="4_gdlpp"]
+[ext_resource type="PackedScene" uid="uid://ct7lobuut4rkp" path="res://scenes/components/camera_limits_component.tscn" id="8_rqqjx"]
 [ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="8_xv8j2"]
 [ext_resource type="PackedScene" uid="uid://b4uy65mo66euk" path="res://scenes/buildings/wall.tscn" id="10_07xt7"]
 [ext_resource type="PackedScene" uid="uid://0dj4qfdi18fm" path="res://scenes/entities/entity.tscn" id="11_0psq2"]
@@ -184,7 +185,18 @@ position = Vector2(76, 19)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.8, 0.8)
-position_smoothing_speed = 10.0
+limit_left = -374
+limit_top = -190
+limit_right = 374
+limit_bottom = 190
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+editor_draw_limits = true
+
+[node name="CameraLimitsComponent" parent="Player/Camera2D" node_paths=PackedStringArray("camera", "player") instance=ExtResource("8_rqqjx")]
+camera = NodePath("..")
+player = NodePath("../..")
 
 [node name="WorldCenter" type="Sprite2D" parent="."]
 scale = Vector2(0.12, 0.12)

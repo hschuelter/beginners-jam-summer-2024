@@ -63,7 +63,6 @@ action_cooldown = 0.1
 unique_name_in_owner = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_3nk0c")]
-scale = Vector2(1, 1)
 
 [node name="ResourcesComponent" type="Node2D" parent="."]
 script = ExtResource("7_w0nrp")
