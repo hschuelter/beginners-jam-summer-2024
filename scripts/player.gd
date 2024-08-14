@@ -102,6 +102,13 @@ func handle_movement(input_vector: Vector2, delta: float) -> void:
 	
 	move_and_slide()
 
+
+func take_damage(damage) -> void:
+	health_component.damage(damage)
+	if health_component.current_health <= 0:
+		get_parent().game_over()
+
+
 func _on_pickup_range_area_entered(area):
 	if area.is_in_group("drop"):
 		resources_component.collect(area.gears)

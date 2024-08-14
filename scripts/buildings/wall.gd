@@ -21,6 +21,12 @@ func _ready():
 func die():
 	queue_free()
 
+
+func take_damage(damage: float) -> void:
+	DamageNumbers.display_number(damage, damage_number_origin.global_position)
+	health_component.damage(damage)
+
+
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		var damage: float = area.damage
