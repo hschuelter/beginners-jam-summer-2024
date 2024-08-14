@@ -14,6 +14,7 @@ signal game_over
 @onready var drop_component = $DropComponent
 @onready var health_component = $HealthComponent
 @onready var slow_timer = $SlowTimer
+@onready var attack_cd_timer = $AttackCdTimer
 #endregion
 
 
@@ -29,6 +30,10 @@ var world
 
 var is_slowed: bool = false
 var slow_value: float = 0.5
+var building_on_range: Node = null
+var can_attack: bool = true
+
+var default_speed: float = 0
 
 static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _name: String = "") -> Enemy:
 	var new_enemy: Enemy = ENEMY_SCENE.instantiate()
@@ -48,7 +53,9 @@ func _ready():
 	drop_component.drop_value = drop_value
 	drop_component.world = world
 	
+	default_speed = speed
 	game_over.connect(world.game_over)
+	attack_cd_timer.timeout.connect(_on_attack_cd_timeout)
 	
 
 func _process(delta):
@@ -71,8 +78,12 @@ func die():
 
 
 
-func attack() -> void:
-	print("attacking")
+func attack(target: Node) -> void:
+	if can_attack:
+		can_attack = false
+		speed = 0
+		target.take_damage(damage)
+		attack_cd_timer.start()
 
 
 func set_target_position(pos: Vector2) -> void:
@@ -95,29 +106,23 @@ func get_player_position() -> Vector2:
 	)
 
 
-func is_target_in_attack_range() -> bool:
-	return not (hitbox
-		.get_overlapping_areas()
-		.filter(func (a): return true if a.get_parent() is Player else false)
-		.is_empty()
-	)
+func target_in_attack_range():
+	if building_on_range:
+		return [building_on_range]
+		
+	var possible_targets = hitbox.get_overlapping_areas()
+	
+	return possible_targets
 
 
 func is_target_a_player() -> bool:
-	if (
-		hitbox
-		.get_overlapping_areas()
-		.filter(func (a): return true if a.get_parent() is Player else false)
-		.is_empty()
-	):
-		print("target isnt a player")
-
 	return not (
 		hitbox
 		.get_overlapping_areas()
 		.filter(func (a): return true if a.get_parent() is Player else false)
 		.is_empty()
 	)
+
 
 func _on_slow_timer_timeout():
 	is_slowed = false
@@ -140,15 +145,20 @@ func _on_hurtbox_body_entered(body):
 
 
 func _on_hitbox_body_entered(body):
-	print(body)
 	if body.is_in_group("building"):
-		body.health_component.damage(damage)
-		DamageNumbers.display_number(damage, body.damage_number_origin.global_position)
-		self.queue_free()
-	pass # Replace with function body.
+		building_on_range = body
 
 
 func _on_hitbox_area_entered(area):
-	print(area)
 	if area.is_in_group("world_center"):
 		game_over.emit()
+
+
+func _on_hitbox_body_exited(body):
+	if body.is_in_group("building"):
+		building_on_range = null
+
+
+func _on_attack_cd_timeout():
+	can_attack = true
+	speed = default_speed

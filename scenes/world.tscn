@@ -700,7 +700,7 @@ vertical_alignment = 1
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
 ingame_speed_rate = 5.0
-initial_hour = 6
+initial_hour = 18
 
 [node name="Table" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_lut6c")]
 position = Vector2(40, -25)
