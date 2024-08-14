@@ -1,12 +1,12 @@
-class_name Entity extends Node2D
+class_name Entity extends StaticBody2D
 
 @onready var world = $".."
 @onready var health_component = $HealthComponent
 @onready var drop_component = $DropComponent
 
 @export var max_health: float = 30
-@export var drop_rate: float = 0.30
-@export var drop_value: int = 2
+@export var drop_rate: float = 1
+@export var drop_value: int = 5
 
 func _ready():
 	health_component.max_health = max_health

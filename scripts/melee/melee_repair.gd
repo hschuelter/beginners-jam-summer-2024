@@ -10,6 +10,6 @@ static func create_melee_repair(_damage: float, _size: float, _name: String) -> 
 	
 	return new_melee_repair
 
-func _on_area_entered(area):
-	if area.is_in_group("building"):
-		area.health_component.heal(self.damage)
+func _on_body_entered(body):
+	if body.is_in_group("building"):
+		body.health_component.heal(self.damage)

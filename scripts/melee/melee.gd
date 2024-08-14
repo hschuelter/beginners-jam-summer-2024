@@ -12,9 +12,9 @@ static func create_melee(_damage: float, _size: float, _name: String) -> Melee:
 	
 	return new_melee
 
-func _on_area_entered(area):
-	if area.is_in_group("entity"):
-		area.health_component.damage(self.damage)
-
 func _on_duration_timer_timeout():
 	queue_free()
+
+func _on_body_entered(body):
+	if body.is_in_group("entity"):
+		body.health_component.damage(self.damage)

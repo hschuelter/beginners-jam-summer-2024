@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6kgh"]
 size = Vector2(40, 40)
 
-[node name="Entity" type="Area2D" groups=["entity"]]
+[node name="Entity" type="StaticBody2D" groups=["entity"]]
 script = ExtResource("1_2rmwr")
 
 [node name="ColorRect" type="ColorRect" parent="."]

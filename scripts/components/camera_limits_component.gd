@@ -8,9 +8,9 @@ enum Dir {LEFT, TOP, RIGHT, BOTTOM}
 #region Const
 const default_camera_limits: Dictionary = {
 	Dir.LEFT: -374,
-	Dir.TOP: -190,
+	Dir.TOP: -374,
 	Dir.RIGHT: 374,
-	Dir.BOTTOM: 190
+	Dir.BOTTOM: 374
 }
 
 const sidescreen_camera_limits: Dictionary = {

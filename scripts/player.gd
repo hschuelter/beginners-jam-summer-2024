@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 120.0
 
 signal update_resources(gears: int)
 signal update_toolbox(current_tool: int)
@@ -13,7 +13,7 @@ signal update_toolbox(current_tool: int)
 @onready var health_component = $HealthComponent
 @onready var resources_component = $ResourcesComponent
 
-@export var starting_gears: int = 100
+@export var starting_gears: int = 0
 @export var max_health: int = 10
 
 enum States {
@@ -26,7 +26,7 @@ var current_state: States = States.GUN
 
 enum Towers { BASIC, SLOW, SNIPER }
 var current_tower: Towers = Towers.BASIC 
-var tower_cost: int = 1
+var tower_cost: int = 10
 var mouse_on_field: bool = true
 
 func _ready():

@@ -1,4 +1,4 @@
-class_name Table extends Area2D
+class_name Table extends StaticBody2D
 
 signal open_upgrade_ui
 signal close_upgrade_ui
@@ -8,15 +8,27 @@ signal close_upgrade_ui
 @export var player: Player
 @export var distance: float = 40
 
+var is_in_range: bool = false
+
 func _ready():
 	outline.visible = false
+	is_in_range = false
 
 
 func _process(delta):
-	if global_position.distance_to(player.global_position) < distance:
-		outline.visible = true
+	if is_in_range:
 		if(Input.is_action_just_pressed("ui_accept")):
 			open_upgrade_ui.emit()
-	else:
+
+
+func _on_range_body_entered(body):
+	if body.is_in_group("player"):
+		outline.visible = true
+		is_in_range = true
+
+
+func _on_range_body_exited(body):
+	if body.is_in_group("player"):
 		outline.visible = false
+		is_in_range = false
 		close_upgrade_ui.emit()

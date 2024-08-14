@@ -1,5 +1,7 @@
 extends Node2D
 
+signal update_danger_zone(positions)
+
 @onready var world = $".."
 @onready var spawn_timer = $SpawnTimer
 @onready var enemy_scene: Resource = preload("res://scenes/enemies/enemy.tscn")
@@ -8,12 +10,18 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var spawn_points = [
-	Vector2(    0, -360), # North
-	Vector2(    0,  360), # South
-	Vector2(  360,    0), # East
-	Vector2( -360,    0)  # West
+	Vector2(    0, -360), # North - 0
+	Vector2(    0,  360), # South - 1
+	Vector2(  360,    0), # East  - 2
+	Vector2( -360,    0)  # West  - 3
 ]
 var can_spawn: bool = false
+
+var waves = [
+	[3],
+	[2, 3]
+]
+var current_wave: int = 0
 
 func _ready():
 	spawn_timer.start()
@@ -34,10 +42,10 @@ func spawn_enemy(_position: Vector2) -> void:
 
 func change_daytime(is_day: bool) -> void:
 	can_spawn = not is_day
-	print("can spawn? " + str(can_spawn))
+	current_wave = WorldState._current_day
+	update_danger_zone.emit(waves[current_wave])
 
 func _on_spawn_timer_timeout() -> void:
 	if can_spawn:
-	#var position: Vector2 = get_random_spawn_point()
-		for pos in spawn_points:
-			spawn_enemy(pos)
+		for pos in waves[current_wave]:
+			spawn_enemy(spawn_points[pos])

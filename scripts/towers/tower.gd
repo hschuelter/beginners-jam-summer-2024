@@ -80,3 +80,12 @@ func _on_range_area_exited(enemy):
 
 func _on_shoot_timer_timeout():
 	can_shoot = true
+
+
+func _on_range_body_entered(enemy):
+	if enemy.is_in_group("enemy"):
+		enemy_queue.push_back(enemy)
+
+func _on_range_body_exited(enemy):
+	if enemy.is_in_group("enemy"):
+		enemy_queue.erase(enemy)

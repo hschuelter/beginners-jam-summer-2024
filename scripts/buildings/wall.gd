@@ -1,4 +1,4 @@
-class_name Wall extends Area2D
+class_name Wall extends StaticBody2D
 
 const MAX_DISTANCE_TO_SELECT = 32
 
@@ -29,13 +29,13 @@ func _on_area_entered(area):
 		health_component.damage(damage)
 
 
-func _on_mouse_hover_range_mouse_entered():
-	sprite_outline.visible = true
-	#health_component.visible = true
-	is_selected = true
-
-
-func _on_mouse_hover_range_mouse_exited():
-	sprite_outline.visible = false
-	#health_component.visible = false
-	is_selected = false
+#func _on_mouse_hover_range_mouse_entered():
+	#sprite_outline.visible = true
+	##health_component.visible = true
+	#is_selected = true
+#
+#
+#func _on_mouse_hover_range_mouse_exited():
+	#sprite_outline.visible = false
+	##health_component.visible = false
+	#is_selected = false

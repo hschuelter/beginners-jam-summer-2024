@@ -5,6 +5,8 @@ const INGAME_TO_REAL_MINUTE_DURATION = (2 * PI) / (MINUTES_PER_HOUR * 24)
 
 signal time_tick(day: int, hour: int, minute: int)
 signal change_daytime(is_day: bool)
+signal play_day_music()
+signal play_night_music()
 
 @export var gradient: GradientTexture1D
 @export var ingame_speed_rate: float = 1.0 
@@ -36,11 +38,15 @@ func _recalculate_time() -> void:
 	if past_minute != minute:
 		past_minute = minute
 		WorldState.set_current_hour(hour, minute)
+		WorldState.set_current_day(day)
 		time_tick.emit(day, hour, minute)
 		
 		if is_day and (hour >= 18 or hour < 6):
 			is_day = false
 			change_daytime.emit(is_day)
+			play_night_music.emit()
+			
 		if not is_day and (hour >= 6 and hour < 18):
 			is_day = true
 			change_daytime.emit(is_day)
+			play_day_music.emit()

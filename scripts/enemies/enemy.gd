@@ -1,4 +1,4 @@
-class_name Enemy extends Area2D
+class_name Enemy extends CharacterBody2D
 
 #region Constants
 const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
@@ -8,6 +8,7 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 @onready var damage_number_origin = $DamageNumberOrigin
 @onready var fov: Area2D = $FOV
 @onready var hitbox: Area2D = $Hitbox 
+@onready var hurtbox = $Hurtbox
 @onready var drop_component = $DropComponent
 @onready var health_component = $HealthComponent
 @onready var slow_timer = $SlowTimer
@@ -113,12 +114,30 @@ func is_target_a_player() -> bool:
 		.is_empty()
 	)
 
-func _on_area_entered(area):
+func _on_slow_timer_timeout():
+	is_slowed = false
+
+
+func _on_hurtbox_area_entered(area):
 	if area.is_in_group("bullet"):
 		var damage = area.damage
 		health_component.damage(area.damage)
 		DamageNumbers.display_number(damage, damage_number_origin.global_position)
 		area.queue_free()
 
-func _on_slow_timer_timeout():
-	is_slowed = false
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("bullet"):
+		var damage = body.damage
+		health_component.damage(body.damage)
+		DamageNumbers.display_number(damage, damage_number_origin.global_position)
+		body.queue_free()
+
+
+func _on_hitbox_body_entered(body):
+	print(body)
+	if body.is_in_group("building"):
+		body.health_component.damage(damage)
+		DamageNumbers.display_number(damage, body.damage_number_origin.global_position)
+		self.queue_free()
+	pass # Replace with function body.

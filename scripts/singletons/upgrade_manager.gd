@@ -2,15 +2,17 @@ extends Node
 
 #region Basic Tower Upgrades
 var basic_upgrade = 5.0
+var basic_price = 20
 var basic_level = 1
 
-var basic_damage: float = 10
+var basic_damage: float = 5
 var basic_range: float = 60
 var basic_cooldown: float = 1.0
 #endregion
 
 #region Slow Tower Upgrades
 var slow_upgrade = 1.2
+var slow_price = 20
 var slow_level = 1
 
 var slow_damage: float = 2
@@ -21,6 +23,7 @@ var slow_value: float = 0.5
 
 #region Sniper Tower Upgrades
 var sniper_upgrade = 40
+var sniper_price = 20
 var sniper_level = 1
 
 var sniper_damage: float = 4
