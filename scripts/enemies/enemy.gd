@@ -15,6 +15,7 @@ signal game_over
 @onready var health_component = $HealthComponent
 @onready var slow_timer = $SlowTimer
 @onready var attack_cd_timer = $AttackCdTimer
+@onready var animated_sprite_2d = $AnimatedSprite2D
 #endregion
 
 
@@ -80,13 +81,16 @@ func die():
 
 func attack(target: Node) -> void:
 	if can_attack:
+		animated_sprite_2d.play("attack")
 		can_attack = false
 		speed = 0
-		target.take_damage(damage)
 		attack_cd_timer.start()
+		await get_tree().create_timer(0.25).timeout
+		target.take_damage(damage)
 
 
 func set_target_position(pos: Vector2) -> void:
+	animated_sprite_2d.play("run")
 	target = pos
 
 
@@ -109,7 +113,6 @@ func get_player_position() -> Vector2:
 func target_in_attack_range():
 	if building_on_range:
 		return [building_on_range]
-		
 	var possible_targets = hitbox.get_overlapping_areas()
 	
 	return possible_targets

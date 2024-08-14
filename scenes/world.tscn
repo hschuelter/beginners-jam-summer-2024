@@ -389,7 +389,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Slow
-Cost: 10"
+Cost: 20"
 label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -408,7 +408,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Sniper
-Cost: 10"
+Cost: 40"
 label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -727,8 +727,8 @@ camera = NodePath("..")
 player = NodePath("../..")
 
 [node name="WorldCenter" type="Area2D" parent="." groups=["world_center"]]
-collision_layer = 9
-collision_mask = 9
+collision_layer = 5
+collision_mask = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="WorldCenter"]
 scale = Vector2(0.12, 0.12)

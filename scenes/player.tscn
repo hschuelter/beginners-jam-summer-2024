@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dc7e8d6t11xfm"]
+[gd_scene load_steps=24 format=3 uid="uid://dc7e8d6t11xfm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_upa1n"]
-[ext_resource type="Texture2D" uid="uid://baw8crp034663" path="res://assets/art/player-Sprite-Sheet.png" id="2_udygj"]
+[ext_resource type="Texture2D" uid="uid://fbjwagudnh6p" path="res://assets/art/player/player-Sheet.png" id="2_146nw"]
+[ext_resource type="SpriteFrames" uid="uid://dcm8ola2j0up6" path="res://assets/art/player/sprite_frames/gun_tool.tres" id="3_ogcax"]
 [ext_resource type="PackedScene" uid="uid://crufpohg3j3sf" path="res://scenes/tools/gun_tool.tscn" id="4_2xii0"]
 [ext_resource type="PackedScene" uid="uid://u46o3bs2kuma" path="res://scenes/tools/build_tool.tscn" id="4_cs82n"]
 [ext_resource type="PackedScene" uid="uid://bb353ugcjrvy2" path="res://scenes/tools/repair_tool.tscn" id="4_i2bue"]
@@ -10,47 +11,143 @@
 [ext_resource type="Script" path="res://scripts/components/resources_component.gd" id="7_w0nrp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_188pc"]
-radius = 7.0
-height = 26.0
+radius = 4.28571
+height = 17.1429
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bps37"]
+atlas = ExtResource("2_146nw")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe2hg"]
+atlas = ExtResource("2_146nw")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2drji"]
+atlas = ExtResource("2_146nw")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eddsx"]
+atlas = ExtResource("2_146nw")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47g02"]
+atlas = ExtResource("2_146nw")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky22r"]
+atlas = ExtResource("2_146nw")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b7eu"]
+atlas = ExtResource("2_146nw")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efpyc"]
+atlas = ExtResource("2_146nw")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tg61"]
+atlas = ExtResource("2_146nw")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lc04"]
+atlas = ExtResource("2_146nw")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmic1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bps37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe2hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2drji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eddsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47g02")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky22r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b7eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efpyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tg61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lc04")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_humg7"]
 radius = 12.8571
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1e41"]
-radius = 7.14286
-height = 25.7143
+radius = 5.71429
+height = 20.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(0.7, 0.7)
 collision_layer = 9
 script = ExtResource("1_upa1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 3)
+visible = false
+position = Vector2(-5.96046e-08, 7.14286)
 shape = SubResource("CapsuleShape2D_188pc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_udygj")
-hframes = 8
-vframes = 4
-frame = 1
+position = Vector2(0, -5.71429)
+sprite_frames = SubResource("SpriteFrames_rmic1")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.475238
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2.85714, 7.14286)
+sprite_frames = ExtResource("3_ogcax")
+animation = &"shoot"
+autoplay = "idle"
+frame_progress = 0.483189
+offset = Vector2(6, -2)
 
 [node name="PickupRange" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
-position = Vector2(-1.42857, 2.85714)
+position = Vector2(-1.19209e-07, 7.14286)
 shape = SubResource("CircleShape2D_humg7")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-1.42857, 2.85714)
+position = Vector2(1.19209e-07, 7.14286)
 shape = SubResource("CapsuleShape2D_v1e41")
 
 [node name="GunTool" parent="." instance=ExtResource("4_2xii0")]
 unique_name_in_owner = true
+position = Vector2(0, 5)
 
 [node name="BuildTool" parent="." instance=ExtResource("4_cs82n")]
 unique_name_in_owner = true
@@ -63,7 +160,7 @@ action_cooldown = 1.0
 unique_name_in_owner = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_3nk0c")]
-position = Vector2(-1.42857, 17.1429)
+position = Vector2(2, 12)
 
 [node name="ResourcesComponent" type="Node2D" parent="."]
 position = Vector2(1.42857, 7.14286)

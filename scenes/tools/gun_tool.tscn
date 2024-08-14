@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://crufpohg3j3sf"]
+[gd_scene load_steps=4 format=3 uid="uid://crufpohg3j3sf"]
 
 [ext_resource type="PackedScene" uid="uid://r0vxnftf76t0" path="res://scenes/tools/tool.tscn" id="1_m0gro"]
 [ext_resource type="Script" path="res://scripts/tools/gun_tool.gd" id="2_cfvan"]
+[ext_resource type="SpriteFrames" uid="uid://dcm8ola2j0up6" path="res://assets/art/player/sprite_frames/gun_tool.tres" id="3_66yr0"]
 
 [node name="GunTool" instance=ExtResource("1_m0gro")]
 script = ExtResource("2_cfvan")
-bullet_damage = 1.0
+bullet_damage = 3.0
 target = Vector2(0, 0)
+
+[node name="ToolSprite" parent="." index="0"]
+sprite_frames = ExtResource("3_66yr0")
+animation = &"shoot"
+autoplay = "idle"
+offset = Vector2(10.34, -5.14)
+
+[node name="Marker2D" type="Marker2D" parent="." index="2"]
+position = Vector2(11, -3)

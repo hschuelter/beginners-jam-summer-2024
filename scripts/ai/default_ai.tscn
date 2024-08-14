@@ -13,7 +13,7 @@
 
 [node name="DefaultAi" type="Node" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_d3tql")
-blackboard = NodePath("@Node@72663")
+blackboard = NodePath("@Node@33434")
 actor = NodePath("")
 
 [node name="Either" type="Node" parent="."]

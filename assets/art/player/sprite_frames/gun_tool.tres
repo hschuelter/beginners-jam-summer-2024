@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dcm8ola2j0up6"]
+
+[ext_resource type="Texture2D" uid="uid://co22td8wdg76i" path="res://assets/art/player/gun-sheet.png" id="1_k2fqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxnwj"]
+atlas = ExtResource("1_k2fqs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkfgx"]
+atlas = ExtResource("1_k2fqs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2qbw"]
+atlas = ExtResource("1_k2fqs")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c028w"]
+atlas = ExtResource("1_k2fqs")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vexn"]
+atlas = ExtResource("1_k2fqs")
+region = Rect2(48, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxnwj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkfgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2qbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c028w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vexn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkfgx")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 12.0
+}]
