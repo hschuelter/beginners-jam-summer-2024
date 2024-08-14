@@ -15,9 +15,9 @@ const default_camera_limits: Dictionary = {
 
 const sidescreen_camera_limits: Dictionary = {
 	Dir.LEFT: {Dir.LEFT: -1122, Dir.RIGHT: -376},
-	Dir.TOP: {Dir.TOP: -570, Dir.BOTTOM: -192},
+	Dir.TOP: {Dir.TOP: -1100, Dir.BOTTOM: -192},
 	Dir.RIGHT: {Dir.LEFT: 376, Dir.RIGHT: 1122},
-	Dir.BOTTOM: {Dir.TOP: 192, Dir.BOTTOM: 570}
+	Dir.BOTTOM: {Dir.TOP: 192, Dir.BOTTOM: 1100}
 }
 #endregion
 
