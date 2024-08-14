@@ -2,6 +2,8 @@ extends Node2D
 
 signal update_danger_zone(positions)
 
+signal player_victory
+
 @onready var world = $".."
 @onready var spawn_timer = $SpawnTimer
 @onready var enemy_scene: Resource = preload("res://scenes/enemies/enemy.tscn")
@@ -28,6 +30,8 @@ var current_wave: int = 0
 
 func _ready():
 	spawn_timer.start()
+	
+	player_victory.connect(world.player_victory)
 
 func _process(delta):
 	pass
@@ -47,9 +51,9 @@ func change_daytime(is_day: bool) -> void:
 	can_spawn = not is_day
 	current_wave = WorldState._current_day
 	if current_wave == 5:
-		print("YOU WIN")
-	
-	update_danger_zone.emit(waves[current_wave])
+		player_victory.emit()
+	else:
+		update_danger_zone.emit(waves[current_wave])
 
 func _on_spawn_timer_timeout() -> void:
 	if can_spawn:

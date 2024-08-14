@@ -4,6 +4,8 @@ class_name Enemy extends CharacterBody2D
 const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 #endregion
 
+signal game_over
+
 #region Node Childs
 @onready var damage_number_origin = $DamageNumberOrigin
 @onready var fov: Area2D = $FOV
@@ -18,7 +20,7 @@ const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 @export var max_health: float = 30
 @export var drop_rate: float = 0.30
 @export var drop_value: int = 2
-@export var speed: float = 30.0
+@export var speed: float = 35.0
 @export var damage: float = 10.0
 
 var player: Player
@@ -45,14 +47,16 @@ func _ready():
 	drop_component.drop_rate = clamp(drop_rate, 0.0, 1.0)
 	drop_component.drop_value = drop_value
 	drop_component.world = world
+	
+	game_over.connect(world.game_over)
+	
 
 func _process(delta):
 	var direction = target - self.global_position
 	move(direction.normalized(), delta)
 	
-	if(self.global_position.distance_to(target) < 5):
-		print("GAME OVER")
-		queue_free()
+	#if(self.global_position.distance_to(target) < 5):
+		#game_over.emit()
 
 func move(direction: Vector2, delta: float) -> void:
 	var _speed = speed
@@ -142,3 +146,9 @@ func _on_hitbox_body_entered(body):
 		DamageNumbers.display_number(damage, body.damage_number_origin.global_position)
 		self.queue_free()
 	pass # Replace with function body.
+
+
+func _on_hitbox_area_entered(area):
+	print(area)
+	if area.is_in_group("world_center"):
+		game_over.emit()
