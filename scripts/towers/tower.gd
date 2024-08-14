@@ -9,6 +9,7 @@ const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 @onready var world = $".."
 @onready var collision_shape_2d = $Range/CollisionShape2D
 @onready var shoot_timer = $ShootTimer
+@onready var range_sprite = $Range/Sprite2D
 
 var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
@@ -28,6 +29,7 @@ func _ready():
 	self.shoot_timer.wait_time = tower_cooldown
 	self.shoot_timer.start()
 	self.collision_shape_2d.shape = circle_shape_2d
+	self.range_sprite.scale = Vector2(tower_range, tower_range) / 100
 	self.enemy_queue = []
 	self.target = null
 

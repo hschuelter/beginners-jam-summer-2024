@@ -19,7 +19,10 @@ var can_spawn: bool = false
 
 var waves = [
 	[3],
-	[2, 3]
+	[2, 3],
+	[0, 3],
+	[1, 2, 3],
+	[0, 1, 2, 3],
 ]
 var current_wave: int = 0
 
@@ -43,6 +46,9 @@ func spawn_enemy(_position: Vector2) -> void:
 func change_daytime(is_day: bool) -> void:
 	can_spawn = not is_day
 	current_wave = WorldState._current_day
+	if current_wave == 5:
+		print("YOU WIN")
+	
 	update_danger_zone.emit(waves[current_wave])
 
 func _on_spawn_timer_timeout() -> void:

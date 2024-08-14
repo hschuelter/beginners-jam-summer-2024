@@ -51,6 +51,7 @@ func _process(delta):
 	move(direction.normalized(), delta)
 	
 	if(self.global_position.distance_to(target) < 5):
+		print("GAME OVER")
 		queue_free()
 
 func move(direction: Vector2, delta: float) -> void:

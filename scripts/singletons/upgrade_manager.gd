@@ -50,6 +50,7 @@ func upgrade_sniper() -> void:
 	for tower in get_tree().get_nodes_in_group("sniper_tower"):
 		tower.tower_range = sniper_range
 		tower.collision_shape_2d.shape.radius = sniper_range
+		tower.range_sprite.scale = Vector2(sniper_range, sniper_range) / 100
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
