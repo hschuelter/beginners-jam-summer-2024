@@ -1,8 +1,103 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb353ugcjrvy2"]
+[gd_scene load_steps=15 format=3 uid="uid://bb353ugcjrvy2"]
 
 [ext_resource type="PackedScene" uid="uid://r0vxnftf76t0" path="res://scenes/tools/tool.tscn" id="1_lwvh2"]
 [ext_resource type="Script" path="res://scripts/tools/repair_tool.gd" id="2_vgvxk"]
+[ext_resource type="Texture2D" uid="uid://0qfcomo0ds5k" path="res://assets/art/player/repair-sheet.png" id="3_ink2u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbdj"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eemjh"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eawx5"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1323"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy00x"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_savv0"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmeq1"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbsfc"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdm3m"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr57w"]
+atlas = ExtResource("3_ink2u")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0n52u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdbdj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eemjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eawx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1323")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy00x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_savv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmeq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbsfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdm3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr57w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eemjh")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 14.0
+}]
 
 [node name="RepairTool" instance=ExtResource("1_lwvh2")]
 script = ExtResource("2_vgvxk")
 repair = 10
+
+[node name="ToolSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_0n52u")
+animation = &"shoot"
+autoplay = "idle"
+frame = 9
+frame_progress = 1.0
+offset = Vector2(10.34, -3.1)

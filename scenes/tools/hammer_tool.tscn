@@ -1,8 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgg5ufdxkinc2"]
+[gd_scene load_steps=10 format=3 uid="uid://dgg5ufdxkinc2"]
 
 [ext_resource type="PackedScene" uid="uid://r0vxnftf76t0" path="res://scenes/tools/tool.tscn" id="1_sabw0"]
 [ext_resource type="Script" path="res://scripts/tools/hammer_tool.gd" id="2_o8d2x"]
+[ext_resource type="Texture2D" uid="uid://docltamx8fr8o" path="res://assets/art/player/hammer-sheet.png" id="3_87ll0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t87gk"]
+atlas = ExtResource("3_87ll0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu35k"]
+atlas = ExtResource("3_87ll0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxp2x"]
+atlas = ExtResource("3_87ll0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcdg3"]
+atlas = ExtResource("3_87ll0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a7rj"]
+atlas = ExtResource("3_87ll0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rgb1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t87gk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu35k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxp2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcdg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a7rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu35k")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 6.0
+}]
 
 [node name="HammerTool" instance=ExtResource("1_sabw0")]
 script = ExtResource("2_o8d2x")
 damage = 10
+
+[node name="ToolSprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_5rgb1")
+animation = &"shoot"
+frame = 4
+frame_progress = 1.0
+offset = Vector2(10.34, -2)

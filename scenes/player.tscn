@@ -154,10 +154,14 @@ unique_name_in_owner = true
 
 [node name="RepairTool" parent="." instance=ExtResource("4_i2bue")]
 unique_name_in_owner = true
+visible = false
+position = Vector2(0, 4)
 action_cooldown = 1.0
 
 [node name="HammerTool" parent="." instance=ExtResource("6_8ck1w")]
 unique_name_in_owner = true
+visible = false
+position = Vector2(-1, 4)
 
 [node name="HealthComponent" parent="." instance=ExtResource("7_3nk0c")]
 position = Vector2(2, 12)
