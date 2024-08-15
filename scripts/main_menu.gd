@@ -9,7 +9,6 @@ const world_scene = "res://scenes/world.tscn"
 
 func _ready():
 	Engine.max_fps = 60
-	start_game_button.grab_focus()
 	audio_stream_player_2d.play()
 	transition_screen.visible = false
 

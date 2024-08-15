@@ -17,4 +17,5 @@ func action() -> void:
 		world.add_child(melee_repair)
 		melee_repair.global_position = self.global_position + (target.normalized() * 20)
 		
+		can_action = false
 		action_timer.start()

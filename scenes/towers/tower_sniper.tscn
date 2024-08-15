@@ -1,7 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmmqtd74a07yb"]
+[gd_scene load_steps=10 format=3 uid="uid://cmmqtd74a07yb"]
 
 [ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_8pmw2"]
 [ext_resource type="Script" path="res://scripts/towers/tower_sniper.gd" id="2_nsk41"]
+[ext_resource type="Texture2D" uid="uid://b4mvpcgfgbuok" path="res://assets/art/turrets/sniper/sniper-sheet.png" id="3_gqbfd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsa0o"]
+atlas = ExtResource("3_gqbfd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjoft"]
+atlas = ExtResource("3_gqbfd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ppsn"]
+atlas = ExtResource("3_gqbfd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5phm"]
+atlas = ExtResource("3_gqbfd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjkeo"]
+atlas = ExtResource("3_gqbfd")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcpdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsa0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjoft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ppsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5phm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjkeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsa0o")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 8.0
+}]
 
 [node name="TowerSniper" groups=["sniper_tower"] instance=ExtResource("1_8pmw2")]
 script = ExtResource("2_nsk41")
@@ -9,5 +56,13 @@ tower_damage = 4.0
 tower_range = 160.0
 tower_cooldown = 2.0
 
-[node name="ColorRect" parent="." index="0"]
+[node name="ColorRect" parent="." index="1"]
 color = Color(0.023221, 0.429784, 0.0448467, 1)
+
+[node name="TurretSprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_qcpdu")
+frame = 0
+frame_progress = 0.0
+
+[node name="Marker2D" parent="TurretSprite" index="0"]
+position = Vector2(-22, 0)

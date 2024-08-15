@@ -53,18 +53,18 @@ func _on_mouse_exited_ui():
 	player.mouse_on_field = true
 
 func _on_basic_upgrade_pressed():
-	if player.resources_component.can_build(UpgradeManager.basic_price):
-		player.resources_component.spend(UpgradeManager.basic_price)
+	if player.resources_component.can_build(UpgradeManager.basic_upgrade_price):
+		player.resources_component.spend(UpgradeManager.basic_upgrade_price)
 		UpgradeManager.upgrade_basic()
 
 func _on_slow_upgrade_pressed():
-	if player.resources_component.can_build(UpgradeManager.slow_price):
-		player.resources_component.spend(UpgradeManager.slow_price)
+	if player.resources_component.can_build(UpgradeManager.slow_upgrade_price):
+		player.resources_component.spend(UpgradeManager.slow_upgrade_price)
 		UpgradeManager.upgrade_slow()
 
 func _on_sniper_upgrade_pressed():
-	if player.resources_component.can_build(UpgradeManager.sniper_price):
-		player.resources_component.spend(UpgradeManager.sniper_price)
+	if player.resources_component.can_build(UpgradeManager.sniper_upgrade_price):
+		player.resources_component.spend(UpgradeManager.sniper_upgrade_price)
 		UpgradeManager.upgrade_sniper()
 
 func game_over():
