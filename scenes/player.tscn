@@ -107,6 +107,7 @@ height = 20.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 9
 script = ExtResource("1_upa1n")
+max_health = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
