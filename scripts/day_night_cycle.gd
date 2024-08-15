@@ -9,8 +9,8 @@ signal play_day_music()
 signal play_night_music()
 
 @export var gradient: GradientTexture1D
-@export var ingame_speed_rate: float = 1.0 
-@export var initial_hour: int = 12
+@export var ingame_speed_rate: float = 20
+@export var initial_hour: int = 6
 
 var time: float = 0
 var past_minute: float = -1.0

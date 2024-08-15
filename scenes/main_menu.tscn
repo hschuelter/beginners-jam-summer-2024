@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://yurb8hkbfrqx"]
+[gd_scene load_steps=8 format=3 uid="uid://yurb8hkbfrqx"]
 
 [ext_resource type="LabelSettings" uid="uid://cmklqdckfbc4w" path="res://ui/fonts/default_label.tres" id="1_jhv8j"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_khvsa"]
+[ext_resource type="Theme" uid="uid://bvd320abptk56" path="res://ui/theme/main_menu.tres" id="2_bwcyu"]
 [ext_resource type="AudioStream" uid="uid://d08c477wla5kk" path="res://assets/music/MúsicaMenu.wav" id="3_uddyu"]
 
 [sub_resource type="Animation" id="Animation_o7bel"]
@@ -83,6 +84,14 @@ script = ExtResource("1_khvsa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,13 +99,27 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.5
-offset_top = -11.5
+offset_top = -34.5
 offset_right = 48.5
-offset_bottom = 11.5
+offset_bottom = -11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
-text = "GAME NAME"
+text = "Rabbit Defender"
+horizontal_alignment = 1
+
+[node name="Game jam" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Beginner's Jam Summer 2024"
+label_settings = ExtResource("1_jhv8j")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -105,11 +128,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -28.0
-offset_top = 32.0
+offset_top = 16.0
 offset_right = 28.0
-offset_bottom = 52.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_bwcyu")
 
 [node name="Label" type="Label" parent="CanvasLayer/StartGameButton"]
 layout_mode = 1
@@ -118,6 +142,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_bwcyu")
 text = "START GAME
 "
 label_settings = ExtResource("1_jhv8j")

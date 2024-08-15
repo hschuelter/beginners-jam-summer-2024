@@ -101,3 +101,6 @@ autoplay = "idle"
 frame = 9
 frame_progress = 1.0
 offset = Vector2(10.34, -3.1)
+
+[node name="ActionTimer" parent="." index="1"]
+one_shot = true

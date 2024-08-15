@@ -10,6 +10,7 @@ const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 @onready var collision_shape_2d = $Range/CollisionShape2D
 @onready var shoot_timer = $ShootTimer
 @onready var range_sprite = $Range/Sprite2D
+@onready var turret_sprite = $TurretSprite
 
 var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
@@ -40,8 +41,12 @@ func _process(delta):
 	if target == null:
 		target = _get_enemy()
 	
-	if target != null and can_shoot:
-		shoot()
+	if target != null:
+		var vector = self.global_position - target.global_position
+		var angle = vector.angle() * 180 / PI
+		turret_sprite.rotation_degrees = angle
+		if can_shoot:
+			shoot()
 
 func _get_enemy() -> Enemy:
 	var enemy: Enemy = null
@@ -63,6 +68,7 @@ func _get_enemy() -> Enemy:
 
 func shoot() -> void:
 	var bullet: TowerBullet = TowerBullet.create_bullet(tower_damage, target, "Bullet")
+	turret_sprite.play("shoot")
 	world.add_child(bullet)
 	bullet.global_position = self.global_position
 	

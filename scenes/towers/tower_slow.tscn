@@ -8,5 +8,5 @@ script = ExtResource("2_yu4ut")
 tower_damage = 2.0
 tower_range = 40.0
 
-[node name="ColorRect" parent="." index="0"]
+[node name="ColorRect" parent="." index="1"]
 color = Color(0.645213, 0.762612, 1, 1)
