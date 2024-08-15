@@ -123,7 +123,7 @@ animations = [{
 
 [node name="EnemyLight" instance=ExtResource("1_0frv0")]
 max_health = 70.0
-drop_value = 10
+drop_value = 20
 damage = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="3"]
@@ -132,4 +132,4 @@ animation = &"attack"
 frame_progress = 0.429485
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@40450")
+blackboard = NodePath("@Node@65815")

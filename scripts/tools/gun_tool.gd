@@ -1,6 +1,6 @@
 class_name GunTool extends Tool
 
-@export var bullet_damage: float = 3.0
+@export var bullet_damage: float = 6.0
 @export var target = Vector2.ZERO
 @onready var marker_2d = $Marker2D
 

@@ -24,7 +24,7 @@ var slow_value: float = 0.5
 #endregion
 
 #region Sniper Tower Upgrades
-var sniper_upgrade = 40
+var sniper_upgrade = 20
 var sniper_price = 40
 var sniper_upgrade_price = 80
 var sniper_level = 1
@@ -49,9 +49,11 @@ func upgrade_slow() -> void:
 
 func upgrade_sniper() -> void:
 	sniper_range += sniper_upgrade
+	sniper_damage += sniper_upgrade
 	sniper_level += 1
 	for tower in get_tree().get_nodes_in_group("sniper_tower"):
 		tower.tower_range = sniper_range
+		tower.tower_damage = sniper_damage
 		tower.collision_shape_2d.shape.radius = sniper_range
 		tower.range_sprite.scale = Vector2(sniper_range, sniper_range) / 100
 

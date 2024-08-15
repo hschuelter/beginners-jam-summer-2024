@@ -2,6 +2,8 @@ class_name Enemy extends CharacterBody2D
 
 #region Constants
 const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
+const ENEMY_HEAVY = preload("res://scenes/enemies/enemy_heavy.tscn")
+const ENEMY_LIGHT = preload("res://scenes/enemies/enemy_light.tscn")
 #endregion
 
 signal game_over
@@ -21,7 +23,7 @@ signal game_over
 
 @export var max_health: float = 30
 @export var drop_rate: float = 0.30
-@export var drop_value: int = 2
+@export var drop_value: int = 10
 @export var speed: float = 35.0
 @export var damage: float = 10.0
 
@@ -36,8 +38,15 @@ var can_attack: bool = true
 
 var default_speed: float = 35
 
-static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _name: String = "") -> Enemy:
-	var new_enemy: Enemy = ENEMY_SCENE.instantiate()
+static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _type: int, _name: String = "") -> Enemy:
+	var new_enemy: Enemy
+	if _type == 0:
+		new_enemy = ENEMY_SCENE.instantiate()
+	if _type == 1:
+		new_enemy = ENEMY_LIGHT.instantiate()
+	if _type == 2:
+		new_enemy = ENEMY_HEAVY.instantiate()
+	
 	new_enemy.player = _player
 	new_enemy.target = _target
 	new_enemy.world = _world
