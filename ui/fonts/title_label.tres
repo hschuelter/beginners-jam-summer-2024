@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://bn8xodfb2212o"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bn8xodfb2212o"]
+
+[ext_resource type="FontFile" uid="uid://b0g2umar3f2kr" path="res://font/Choco Shake.otf" id="1_qpui8"]
 
 [resource]
+font = ExtResource("1_qpui8")
 font_size = 24

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b0g2umar3f2kr"
+path="res://.godot/imported/Choco Shake.otf-deddd7ceb907ead46f8e040b192ffa5b.fontdata"
+
+[deps]
+
+source_file="res://font/Choco Shake.otf"
+dest_files=["res://.godot/imported/Choco Shake.otf-deddd7ceb907ead46f8e040b192ffa5b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

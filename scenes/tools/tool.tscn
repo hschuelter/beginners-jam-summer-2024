@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://r0vxnftf76t0"]
+[gd_scene load_steps=3 format=3 uid="uid://r0vxnftf76t0"]
 
 [ext_resource type="Script" path="res://scripts/tools/tool.gd" id="1_yxfo0"]
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="2_14e5d"]
 
 [node name="Tool" type="Node2D"]
 script = ExtResource("1_yxfo0")
 
 [node name="ToolSprite" type="AnimatedSprite2D" parent="."]
-animation = &"idle"
+animation = &""
 
 [node name="ActionTimer" type="Timer" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("2_14e5d")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_timer_timeout"]

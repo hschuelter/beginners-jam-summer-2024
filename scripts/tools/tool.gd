@@ -3,6 +3,7 @@ class_name Tool extends Node2D
 @onready var action_timer = $ActionTimer
 @export var action_cooldown: float = 0.5
 @onready var tool_sprite = $ToolSprite
+@onready var sfx = $SFX
 
 var world
 var can_action: bool = false

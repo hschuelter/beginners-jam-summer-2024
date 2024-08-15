@@ -4,6 +4,12 @@ class_name GunTool extends Tool
 @export var target = Vector2.ZERO
 @onready var marker_2d = $Marker2D
 
+const SHOOT = preload("res://assets/sfx/shoot.wav")
+
+func _ready():
+	super._ready()
+	sfx.stream = SHOOT
+
 func action() -> void:
 	if can_action:
 		tool_sprite.play("shoot")
@@ -11,6 +17,7 @@ func action() -> void:
 		var bullet: Bullet = Bullet.create_bullet(bullet_damage, target.normalized(), "Bullet")
 		
 		world.add_child(bullet)
+		sfx._play()
 		bullet.global_position = marker_2d.global_position
 		
 		can_action = false

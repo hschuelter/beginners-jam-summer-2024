@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgjqgejarymyf"]
+[gd_scene load_steps=13 format=3 uid="uid://dgjqgejarymyf"]
 
 [ext_resource type="Script" path="res://scripts/towers/tower.gd" id="1_2s5pq"]
 [ext_resource type="Texture2D" uid="uid://dwfjyibh20ggu" path="res://assets/art/circle.png" id="2_70rmy"]
 [ext_resource type="Texture2D" uid="uid://brywjm8gh35me" path="res://assets/art/turrets/basic/normal_base.png" id="3_3xru3"]
 [ext_resource type="Texture2D" uid="uid://dpgwt7lenl8lw" path="res://assets/art/turrets/basic/normal-sheet.png" id="4_o731c"]
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="5_u6h4u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwxuf"]
 radius = 40.0
@@ -58,6 +59,8 @@ animations = [{
 script = ExtResource("1_2s5pq")
 
 [node name="Range" type="Area2D" parent="."]
+collision_layer = 2049
+collision_mask = 2049
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 visible = false
@@ -91,6 +94,9 @@ offset = Vector2(-6, 0)
 position = Vector2(-16, 0)
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("5_u6h4u")
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

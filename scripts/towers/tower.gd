@@ -1,6 +1,7 @@
 class_name Tower extends Node2D
 
 const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
+const SHOOT_SFX = preload("res://assets/sfx/shoot.wav")
 
 @export var tower_damage: float = 10
 @export var tower_range: float = 80
@@ -11,6 +12,7 @@ const TOWER_SCENE = preload("res://scenes/towers/tower.tscn")
 @onready var shoot_timer = $ShootTimer
 @onready var range_sprite = $Range/Sprite2D
 @onready var turret_sprite = $TurretSprite
+@onready var sfx = $SFX
 
 var can_shoot: bool = false
 var enemy_queue: Array[Enemy]
@@ -33,6 +35,8 @@ func _ready():
 	self.range_sprite.scale = Vector2(tower_range, tower_range) / 100
 	self.enemy_queue = []
 	self.target = null
+	
+	sfx.stream = SHOOT_SFX
 
 func _process(delta):
 	if target != null and abs(self.global_position.distance_to(target.global_position)) > (tower_range + 15):
@@ -71,6 +75,7 @@ func shoot() -> void:
 	turret_sprite.play("shoot")
 	world.add_child(bullet)
 	bullet.global_position = self.global_position
+	sfx._play()
 	
 	shoot_timer.start()
 	can_shoot = false

@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const SPEED = 120.0
+const PLAYER_HIT = preload("res://assets/sfx/player_hit.wav")
 
 signal update_resources(gears: int)
 signal update_toolbox(current_tool: int)
@@ -14,6 +15,7 @@ signal update_toolbox(current_tool: int)
 @onready var resources_component = $ResourcesComponent
 @onready var player_sprite = $PlayerSprite
 @onready var arrows = $Arrows
+@onready var sfx = $sfx
 
 @export var starting_gears: int = 0
 @export var max_health: int = 10
@@ -46,6 +48,7 @@ func _ready():
 	health_component.current_health = max_health
 	
 	player_sprite.play("idle")
+	sfx.stream = PLAYER_HIT
 
 
 func _physics_process(delta):
@@ -119,6 +122,7 @@ func handle_movement(input_vector: Vector2, delta: float) -> void:
 
 func take_damage(damage) -> void:
 	health_component.damage(damage)
+	sfx._play(0.10)
 	if health_component.current_health <= 0:
 		get_parent().game_over()
 

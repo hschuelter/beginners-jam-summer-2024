@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4mcce87xr4du"]
+[gd_scene load_steps=28 format=3 uid="uid://b4mcce87xr4du"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_5wk46"]
 [ext_resource type="Texture2D" uid="uid://d8fstrya4bgb" path="res://assets/art/enemy/enemy0-sheet.png" id="2_gygdx"]
 [ext_resource type="PackedScene" uid="uid://j8exgj216fpn" path="res://scenes/components/health_component.tscn" id="3_vs5h0"]
 [ext_resource type="PackedScene" uid="uid://nffcgvpomxi8" path="res://scenes/components/drop_component.tscn" id="4_x2ugf"]
 [ext_resource type="PackedScene" uid="uid://c0wpmora2tif6" path="res://scripts/ai/default_ai.tscn" id="5_8manu"]
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="6_bbhjt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwqvv"]
 atlas = ExtResource("2_gygdx")
@@ -25,6 +26,10 @@ region = Rect2(96, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iuovv"]
 atlas = ExtResource("2_gygdx")
 region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37lla"]
+atlas = ExtResource("2_gygdx")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uie6j"]
 atlas = ExtResource("2_gygdx")
@@ -90,6 +95,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_37lla")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uie6j")
 }, {
 "duration": 1.0,
@@ -138,7 +151,7 @@ radius = 52.0096
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
-collision_layer = 3
+collision_layer = 2048
 collision_mask = 3
 script = ExtResource("1_5wk46")
 
@@ -157,8 +170,8 @@ color = Color(0, 0, 0, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_7kkev")
-animation = &"run"
-autoplay = "run"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
@@ -195,13 +208,14 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-
-blackboard = NodePath("@Node@18085")
-
+blackboard = NodePath("@Node@18856")
 actor = NodePath("..")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(41, 0)
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("6_bbhjt")
 
 [connection signal="timeout" from="SlowTimer" to="." method="_on_slow_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=38 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="Texture2D" uid="uid://yw0t4x7py65q" path="res://assets/art/tilemap.png" id="1_1bk3j"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ftwei"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ddx41tbe43roa" path="res://scenes/buildings/table.tscn" id="13_lut6c"]
 [ext_resource type="Script" path="res://scenes/danger_zone.gd" id="15_rbwck"]
 [ext_resource type="PackedScene" uid="uid://b4mcce87xr4du" path="res://scenes/enemies/enemy.tscn" id="17_11yxb"]
-[ext_resource type="FontFile" uid="uid://dv3et1t5m7y6o" path="res://font/Joe Rabbit_demo.otf" id="21_u4qyf"]
+[ext_resource type="FontFile" uid="uid://b0g2umar3f2kr" path="res://font/Choco Shake.otf" id="21_4kume"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kioex"]
 texture = ExtResource("1_1bk3j")
@@ -1195,7 +1195,7 @@ gradient = SubResource("Gradient_7pts8")
 
 [sub_resource type="Gradient" id="Gradient_eww4w"]
 offsets = PackedFloat32Array(0, 0.173737, 0.355556, 0.480808, 0.573737, 0.6875, 1)
-colors = PackedColorArray(0.192185, 0.192388, 0.367141, 1, 0.245091, 0.217538, 0.421543, 1, 0.376471, 0.168627, 0.498039, 1, 0.835294, 0.4, 0.588235, 1, 0.878431, 0.521569, 0.529412, 1, 0.886275, 0.772549, 0.776471, 1, 0.882353, 0.87451, 0.878431, 1)
+colors = PackedColorArray(0.352533, 0.355587, 0.618053, 1, 0.352941, 0.356863, 0.619608, 1, 0.489588, 0.275896, 0.635108, 1, 0.835294, 0.4, 0.588235, 1, 0.878431, 0.521569, 0.529412, 1, 0.886275, 0.772549, 0.776471, 1, 0.882353, 0.87451, 0.878431, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yl0w3"]
 gradient = SubResource("Gradient_eww4w")
@@ -1210,7 +1210,7 @@ size = Vector2(14.9999, 18.0001)
 size = Vector2(17, 15)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mfur0"]
-font = ExtResource("21_u4qyf")
+font = ExtResource("21_4kume")
 
 [sub_resource type="Animation" id="Animation_w121b"]
 length = 0.001
@@ -1248,6 +1248,9 @@ _data = {
 "RESET": SubResource("Animation_w121b"),
 "new_animation": SubResource("Animation_kx724")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip7v2"]
+size = Vector2(49, 57)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ftwei")
@@ -1409,6 +1412,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1453,6 +1457,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1498,6 +1503,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1542,6 +1548,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1658,7 +1665,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UpgradeUI" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1684,6 +1690,7 @@ color = Color(0.14902, 0.14902, 0.14902, 1)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_top = 3.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "Upgrade Table"
@@ -2173,17 +2180,17 @@ position = Vector2(-661, 66)
 [node name="SuperCrate" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(-82, 742)
 scale = Vector2(1.2, 1.2)
-drop_value = 100
+drop_value = 50
 
 [node name="SuperCrate1" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(860, -27)
 scale = Vector2(1.2, 1.2)
-drop_value = 100
+drop_value = 50
 
 [node name="SuperCrate2" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(73, -627)
 scale = Vector2(1.2, 1.2)
-drop_value = 100
+drop_value = 50
 
 [node name="Entity25" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(-240, -78)
@@ -2314,7 +2321,7 @@ position = Vector2(208, 600)
 [node name="LimitsDownLeft" type="StaticBody2D" parent="Limits"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limits/LimitsDownLeft"]
-polygon = PackedVector2Array(-376, 376, -8, 376, -8, 556, -601, 556, -600, 10, -376, 10)
+polygon = PackedVector2Array(-376, 376, -8, 376, -8, 556, -601, 556, -601, 14, -376, 14)
 
 [node name="LimitsDownRight" type="StaticBody2D" parent="Limits"]
 
@@ -2326,13 +2333,13 @@ polygon = PackedVector2Array(-454, 291, -454, -74, -134, -74, -134, 470, -822, 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limits/LimitsUpLeft"]
 position = Vector2(-76, -808)
-polygon = PackedVector2Array(-300, 432, -300, 798, -523, 798, -524, 230, 68, 230, 68, 432)
+polygon = PackedVector2Array(-300, 432, -300, 794, -524, 792, -524, 230, 66, 228, 66, 432)
 
 [node name="LimitsUpRight" type="StaticBody2D" parent="Limits"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limits/LimitsUpRight"]
 position = Vector2(876, -856)
-polygon = PackedVector2Array(-500, 480, -868, 480, -868, 278, -180, 278, -180, 846, -500, 846)
+polygon = PackedVector2Array(-500, 480, -865, 479, -865, 279, -180, 278, -180, 844, -500, 845)
 
 [node name="ZoneLeft" type="StaticBody2D" parent="Limits"]
 
@@ -2516,6 +2523,16 @@ collision_mask = 3
 position = Vector2(173, 132)
 polygon = PackedVector2Array(-93, -51, -91, -119, -86, -118, -86, -43, -91, -37, -163, -36, -163, -52)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="WAlls"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WAlls/StaticBody2D"]
+position = Vector2(-0.5, -18.5)
+shape = SubResource("RectangleShape2D_ip7v2")
+
+[connection signal="mouse_entered" from="Table/Button" to="." method="_on_mouse_entered_ui"]
+[connection signal="mouse_exited" from="Table/Button" to="." method="_on_mouse_exited_ui"]
 [connection signal="mouse_entered" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_entered_ui"]
 [connection signal="mouse_exited" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_exited_ui"]
 [connection signal="mouse_entered" from="CanvasLayer/TowerSelectUI/Background" to="." method="_on_background_mouse_entered"]
@@ -2540,6 +2557,7 @@ polygon = PackedVector2Array(-93, -51, -91, -119, -86, -118, -86, -43, -91, -37,
 [connection signal="pressed" from="CanvasLayer/GameOverUI/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VictoryUI/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 
+[editable path="Table"]
 [editable path="Gates/WallNorth"]
 [editable path="Gates/WallEast"]
 [editable path="Gates/WallSouth"]

@@ -1,8 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cmklqdckfbc4w"]
 
-[ext_resource type="FontFile" uid="uid://dv3et1t5m7y6o" path="res://font/Joe Rabbit_demo.otf" id="1_wf3xm"]
+[ext_resource type="FontFile" uid="uid://b0g2umar3f2kr" path="res://font/Choco Shake.otf" id="1_cnu1h"]
 
 [resource]
 line_spacing = 0.0
-font = ExtResource("1_wf3xm")
+font = ExtResource("1_cnu1h")
 font_size = 6

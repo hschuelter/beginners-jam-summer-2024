@@ -4,8 +4,8 @@ class_name Enemy extends CharacterBody2D
 const ENEMY_SCENE: Resource = preload("res://scenes/enemies/enemy.tscn")
 const ENEMY_HEAVY = preload("res://scenes/enemies/enemy_heavy.tscn")
 const ENEMY_LIGHT = preload("res://scenes/enemies/enemy_light.tscn")
+const WALL_HIT = preload("res://assets/sfx/wall_hit.wav")
 #endregion
-
 signal game_over
 
 #region Node Childs
@@ -19,6 +19,7 @@ signal game_over
 @onready var slow_timer = $SlowTimer
 @onready var attack_cd_timer = $AttackCdTimer
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var sfx = $sfx
 #endregion
 
 
@@ -76,7 +77,7 @@ func _ready():
 	
 	game_over.connect(world.game_over)
 	attack_cd_timer.timeout.connect(_on_attack_cd_timeout)
-	
+	sfx.stream = WALL_HIT
 
 func _process(delta):
 	var direction = target - self.global_position
@@ -86,13 +87,18 @@ func _process(delta):
 
 func move(direction: Vector2, delta: float) -> void:
 	var _speed = speed
+	
 	if is_slowed:
 		_speed *= slow_value
-		
-	self.global_position += direction * _speed * delta
+	
+	velocity = direction * _speed
+	move_and_slide()
 	
 
 func handle_animation(direction: Vector2) -> void:
+	if direction == Vector2.ZERO and target_in_attack_range() == []:
+		animated_sprite_2d.play("idle")
+	
 	if direction.x < 0:
 		animated_sprite_2d.scale.x = -1
 	else:
@@ -111,6 +117,7 @@ func attack(target: Node) -> void:
 		speed = 0
 		attack_cd_timer.start()
 		await get_tree().create_timer(0.25).timeout
+		sfx._play()
 		if target != null:
 			target.take_damage(damage)
 
