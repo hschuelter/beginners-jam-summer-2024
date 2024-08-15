@@ -108,6 +108,7 @@ height = 20.0
 z_index = 5
 collision_layer = 9
 script = ExtResource("1_upa1n")
+max_health = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -149,6 +150,7 @@ shape = SubResource("CapsuleShape2D_v1e41")
 [node name="GunTool" parent="." instance=ExtResource("4_2xii0")]
 unique_name_in_owner = true
 position = Vector2(0, 5)
+bullet_damage = 5.0
 
 [node name="BuildTool" parent="." instance=ExtResource("4_cs82n")]
 unique_name_in_owner = true
