@@ -1,7 +1,122 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtgwli07gx13g"]
+[gd_scene load_steps=20 format=3 uid="uid://dtgwli07gx13g"]
 
 [ext_resource type="PackedScene" uid="uid://dgjqgejarymyf" path="res://scenes/towers/tower.tscn" id="1_mjnln"]
 [ext_resource type="Script" path="res://scripts/towers/tower_slow.gd" id="2_yu4ut"]
+[ext_resource type="Texture2D" uid="uid://dtkv1grnaj0js" path="res://assets/art/turrets/slow/slow-turret_sheet.png" id="3_i3m2e"]
+[ext_resource type="Texture2D" uid="uid://bvb3s2vi2sqjp" path="res://assets/art/turrets/slow/slow-particles-sheet.png" id="4_meymb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy37v"]
+atlas = ExtResource("3_i3m2e")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6owyf"]
+atlas = ExtResource("3_i3m2e")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne4e1"]
+atlas = ExtResource("3_i3m2e")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sv8s"]
+atlas = ExtResource("3_i3m2e")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wce7d"]
+atlas = ExtResource("3_i3m2e")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfky2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy37v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6owyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne4e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sv8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wce7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy37v")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfgak"]
+atlas = ExtResource("4_meymb")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibegk"]
+atlas = ExtResource("4_meymb")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wdad"]
+atlas = ExtResource("4_meymb")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jr2t"]
+atlas = ExtResource("4_meymb")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx054"]
+atlas = ExtResource("4_meymb")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj1m7"]
+atlas = ExtResource("4_meymb")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ogen"]
+atlas = ExtResource("4_meymb")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrw26"]
+atlas = ExtResource("4_meymb")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2a6y2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfgak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibegk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wdad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jr2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx054")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj1m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ogen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrw26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfgak")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [node name="TowerSlow" groups=["slow_tower"] instance=ExtResource("1_mjnln")]
 script = ExtResource("2_yu4ut")
@@ -10,3 +125,13 @@ tower_range = 40.0
 
 [node name="ColorRect" parent="." index="1"]
 color = Color(0.645213, 0.762612, 1, 1)
+
+[node name="TurretSprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_jfky2")
+offset = Vector2(0, 0)
+
+[node name="ParticlesSprite" type="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = SubResource("SpriteFrames_2a6y2")
+animation = &"shoot"
+frame = 8
+frame_progress = 1.0

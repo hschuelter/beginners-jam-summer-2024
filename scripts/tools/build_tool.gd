@@ -21,6 +21,7 @@ var sniper_price: float
 
 enum Towers { BASIC, SLOW, SNIPER }
 var current_tower: Towers = Towers.BASIC
+var current_cost: float
 
 func _ready():
 	super._ready()
@@ -64,6 +65,16 @@ func action() -> void:
 		
 		can_action = false
 		action_timer.start()
+
+func evaluate_cost(tower: Towers) -> float:
+	if tower == Towers.BASIC:
+		return basic_price
+	elif tower == Towers.SLOW:
+		return slow_price
+	elif tower == Towers.SNIPER:
+		return sniper_price
+	return basic_price
+	
 
 func update_values():
 	basic_damage = UpgradeManager.basic_damage

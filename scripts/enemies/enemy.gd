@@ -70,6 +70,7 @@ func _ready():
 func _process(delta):
 	var direction = target - self.global_position
 	move(direction.normalized(), delta)
+	handle_animation(direction)
 	
 	#if(self.global_position.distance_to(target) < 5):
 		#game_over.emit()
@@ -80,7 +81,14 @@ func move(direction: Vector2, delta: float) -> void:
 		_speed *= slow_value
 		
 	self.global_position += direction * _speed * delta
+	
 
+func handle_animation(direction: Vector2) -> void:
+	if direction.x < 0:
+		animated_sprite_2d.scale.x = -1
+	else:
+		animated_sprite_2d.scale.x = 1
+	
 
 func die():
 	drop_component.drop()

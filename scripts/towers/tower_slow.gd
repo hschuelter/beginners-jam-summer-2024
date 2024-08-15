@@ -2,6 +2,8 @@ class_name TowerSlow extends Tower
 
 const TOWER_SLOW_SCENE = preload("res://scenes/towers/tower_slow.tscn")
 
+@onready var particles_sprite = $ParticlesSprite
+
 var tower_slow: float
 
 static func create_tower_slow(_damage: float, _range: float, _cooldown: float, _slow: float) -> TowerSlow:
@@ -14,6 +16,8 @@ static func create_tower_slow(_damage: float, _range: float, _cooldown: float, _
 
 func shoot() -> void:
 	var melee_slow: MeleeSlow = MeleeSlow.create_melee_slow(tower_damage, tower_range, tower_slow, "Melee Slow")
+	turret_sprite.play("shoot")
+	particles_sprite.play("shoot")
 	world.add_child(melee_slow)
 	melee_slow.global_position = self.global_position
 	

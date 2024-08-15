@@ -61,7 +61,7 @@ func _physics_process(delta):
 			gun_tool.action()
 		
 	elif current_state == States.BUILD:
-		var can_build = resources_component.can_build(tower_cost)
+		var can_build = resources_component.can_build(build_tool.evaluate_cost(self.current_tower))
 		var distance: float = self.global_position.distance_to(mouse_position)
 		if(Input.is_action_just_pressed("mouse_left")) and can_build and mouse_on_field: # and distance < 50:
 			build_tool.current_tower = self.current_tower

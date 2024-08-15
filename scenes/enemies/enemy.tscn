@@ -193,7 +193,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-blackboard = NodePath("@Node@20461")
+blackboard = NodePath("@Node@30421")
 actor = NodePath("..")
 
 [connection signal="timeout" from="SlowTimer" to="." method="_on_slow_timer_timeout"]
