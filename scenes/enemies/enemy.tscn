@@ -139,7 +139,6 @@ radius = 52.0096
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 disable_mode = 2
 script = ExtResource("1_5wk46")
-max_health = 20.0
 
 [node name="SlowTimer" type="Timer" parent="."]
 
@@ -191,7 +190,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-blackboard = NodePath("@Node@19495")
+blackboard = NodePath("@Node@17520")
 actor = NodePath("..")
 
 [connection signal="timeout" from="SlowTimer" to="." method="_on_slow_timer_timeout"]

@@ -133,4 +133,4 @@ animation = &"attack"
 frame_progress = 0.0687091
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@42579")
+blackboard = NodePath("@Node@17524")

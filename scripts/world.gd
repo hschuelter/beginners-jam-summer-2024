@@ -9,7 +9,7 @@ const MAIN_MENU_SCENE = preload("res://scenes/main_menu.tscn")
 @onready var wave_spawner = $WaveSpawner
 @onready var walls = $Walls
 @onready var table = $Table
-@onready var danger_zone = $DangerZone
+@onready var danger_zone = %DangerZone
 @onready var game_over_ui = $CanvasLayer/GameOverUI
 @onready var victory_ui = $CanvasLayer/VictoryUI
 
