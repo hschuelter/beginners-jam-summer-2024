@@ -31,6 +31,7 @@ func _ready():
 	table.close_upgrade_ui.connect(canvas_layer.close_upgrade_ui)
 	
 	wave_spawner.update_danger_zone.connect(danger_zone.update_danger_zone)
+	wave_spawner.show_arrows.connect(player.arrows.show_arrows)
 	
 	audio_player.play_day()
 

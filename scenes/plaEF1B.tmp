@@ -116,27 +116,23 @@ max_health = 50
 script = ExtResource("10_7l3nl")
 
 [node name="ArrowNorth" type="Sprite2D" parent="Arrows"]
-modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(0, -8)
 texture = ExtResource("10_44paj")
 offset = Vector2(0, -8)
 
 [node name="ArrowSouth" type="Sprite2D" parent="Arrows"]
-modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(0, 16)
 rotation = 3.14159
 texture = ExtResource("10_44paj")
 offset = Vector2(0, -8)
 
 [node name="ArrowEast" type="Sprite2D" parent="Arrows"]
-modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(12, 0)
 rotation = 1.5708
 texture = ExtResource("10_44paj")
 offset = Vector2(0, -8)
 
 [node name="ArrowWest" type="Sprite2D" parent="Arrows"]
-modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(-8, 1)
 rotation = -1.5708
 texture = ExtResource("10_44paj")

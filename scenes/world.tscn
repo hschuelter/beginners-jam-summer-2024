@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=27 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="Texture2D" uid="uid://yw0t4x7py65q" path="res://assets/art/tilemap.png" id="1_1bk3j"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_ftwei"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://bvd320abptk56" path="res://ui/theme/main_menu.tres" id="8_nmefs"]
 [ext_resource type="LabelSettings" uid="uid://bn8xodfb2212o" path="res://ui/fonts/title_label.tres" id="8_onjp3"]
 [ext_resource type="PackedScene" uid="uid://ct7lobuut4rkp" path="res://scenes/components/camera_limits_component.tscn" id="8_rqqjx"]
+[ext_resource type="Texture2D" uid="uid://bflyemf5j55a4" path="res://assets/art/drops/gear.png" id="9_rdcql"]
 [ext_resource type="PackedScene" uid="uid://b4uy65mo66euk" path="res://scenes/buildings/wall.tscn" id="10_07xt7"]
 [ext_resource type="PackedScene" uid="uid://0dj4qfdi18fm" path="res://scenes/entities/entity.tscn" id="11_0psq2"]
 [ext_resource type="PackedScene" uid="uid://ddx41tbe43roa" path="res://scenes/buildings/table.tscn" id="13_lut6c"]
@@ -99,10 +100,8 @@ script = ExtResource("2_wl4mv")
 [node name="DayNightCycleUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 38.0
-offset_bottom = 19.0
+offset_right = 37.0
+offset_bottom = 18.0
 metadata/_edit_group_ = true
 
 [node name="BG" type="ColorRect" parent="CanvasLayer/DayNightCycleUI"]
@@ -136,10 +135,9 @@ vertical_alignment = 1
 [node name="ResourcesUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 271.0
-offset_top = 1.0
-offset_right = 319.0
-offset_bottom = 21.0
+offset_left = 272.0
+offset_right = 320.0
+offset_bottom = 20.0
 metadata/_edit_group_ = true
 
 [node name="BG" type="ColorRect" parent="CanvasLayer/ResourcesUI"]
@@ -151,11 +149,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14902, 0.14902, 0.14902, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ResourcesUI"]
+position = Vector2(11, 10)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("9_rdcql")
+
 [node name="ResourcesLabel" type="Label" parent="CanvasLayer/ResourcesUI"]
 layout_mode = 0
-offset_left = 4.0
-offset_right = 44.0
-offset_bottom = 19.0
+offset_left = 22.0
+offset_right = 48.0
+offset_bottom = 20.0
 text = "0"
 label_settings = ExtResource("3_7ewr0")
 horizontal_alignment = 1
@@ -165,9 +168,8 @@ vertical_alignment = 1
 layout_mode = 3
 anchors_preset = 0
 offset_left = 91.0
-offset_top = 1.0
 offset_right = 231.0
-offset_bottom = 21.0
+offset_bottom = 20.0
 metadata/_edit_group_ = true
 
 [node name="BG" type="ColorRect" parent="CanvasLayer/ToolboxUI"]
@@ -358,9 +360,9 @@ vertical_alignment = 2
 [node name="TowerSelectUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 271.0
+offset_left = 272.0
 offset_top = 26.0
-offset_right = 319.0
+offset_right = 320.0
 offset_bottom = 102.0
 metadata/_edit_group_ = true
 
@@ -1059,35 +1061,6 @@ polygon = PackedVector2Array(-454, 62, -74, 56, -73, 123, -390, 129, -390, 477, 
 position = Vector2(-397, 476)
 rotation = -1.5708
 polygon = PackedVector2Array(-454, 62, -74, 56, -73, 123, -390, 129, -390, 670, -74, 668, -74, 819, -452, 830)
-
-[node name="DangerZone" type="Node2D" parent="."]
-script = ExtResource("15_rbwck")
-
-[node name="SpriteNorth" type="Sprite2D" parent="DangerZone"]
-visible = false
-position = Vector2(1.81899e-12, -351)
-rotation = 1.5708
-scale = Vector2(0.2, 32)
-texture = SubResource("GradientTexture1D_kh0k3")
-
-[node name="SpriteSouth" type="Sprite2D" parent="DangerZone"]
-visible = false
-position = Vector2(0, 350)
-rotation = -1.5708
-scale = Vector2(0.2, 32)
-texture = SubResource("GradientTexture1D_kh0k3")
-
-[node name="SpriteEast" type="Sprite2D" parent="DangerZone"]
-visible = false
-position = Vector2(351, 2)
-rotation = -3.14159
-scale = Vector2(0.2, 32)
-texture = SubResource("GradientTexture1D_kh0k3")
-
-[node name="SpriteWest" type="Sprite2D" parent="DangerZone"]
-position = Vector2(-350, 0)
-scale = Vector2(0.2, 32)
-texture = SubResource("GradientTexture1D_kh0k3")
 
 [node name="StaticEnemies" type="Node2D" parent="."]
 

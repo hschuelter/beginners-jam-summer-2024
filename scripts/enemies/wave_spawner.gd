@@ -1,6 +1,7 @@
 extends Node2D
 
 signal update_danger_zone(positions)
+signal show_arrows(positions)
 
 signal player_victory
 
@@ -54,6 +55,7 @@ func change_daytime(is_day: bool) -> void:
 		player_victory.emit()
 	else:
 		update_danger_zone.emit(waves[current_wave])
+		show_arrows.emit(waves[current_wave])
 
 func _on_spawn_timer_timeout() -> void:
 	if can_spawn:

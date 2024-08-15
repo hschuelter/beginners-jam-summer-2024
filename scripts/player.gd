@@ -13,6 +13,7 @@ signal update_toolbox(current_tool: int)
 @onready var health_component = $HealthComponent
 @onready var resources_component = $ResourcesComponent
 @onready var player_sprite = $PlayerSprite
+@onready var arrows = $Arrows
 
 @export var starting_gears: int = 0
 @export var max_health: int = 10
