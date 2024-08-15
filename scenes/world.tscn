@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://6y3y8fy2hxup"]
+[gd_scene load_steps=25 format=3 uid="uid://6y3y8fy2hxup"]
 
 [ext_resource type="Texture2D" uid="uid://yw0t4x7py65q" path="res://assets/art/tilemap.png" id="1_1bk3j"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_4dssi"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_ftwei"]
 [ext_resource type="Script" path="res://scripts/day_night_cycle.gd" id="1_jqcbh"]
 [ext_resource type="PackedScene" uid="uid://dc7e8d6t11xfm" path="res://scenes/player.tscn" id="1_yfxmw"]
 [ext_resource type="AudioStream" uid="uid://bcthna52pysmm" path="res://assets/music/MusicaDia.wav" id="2_be7xa"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://0dj4qfdi18fm" path="res://scenes/entities/entity.tscn" id="11_0psq2"]
 [ext_resource type="PackedScene" uid="uid://ddx41tbe43roa" path="res://scenes/buildings/table.tscn" id="13_lut6c"]
 [ext_resource type="Script" path="res://scenes/danger_zone.gd" id="15_rbwck"]
+[ext_resource type="PackedScene" uid="uid://b4mcce87xr4du" path="res://scenes/enemies/enemy.tscn" id="17_11yxb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kioex"]
 texture = ExtResource("1_1bk3j")
@@ -47,7 +48,7 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 gradient = SubResource("Gradient_7pts8")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_4dssi")
+script = ExtResource("1_ftwei")
 
 [node name="TileMapBackground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bv4sy")
@@ -855,15 +856,123 @@ position = Vector2(-661, 66)
 
 [node name="SuperCrate" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(-82, 742)
+scale = Vector2(1.2, 1.2)
 drop_value = 100
 
 [node name="SuperCrate1" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(860, -27)
+scale = Vector2(1.2, 1.2)
 drop_value = 100
 
 [node name="SuperCrate2" parent="Entities" instance=ExtResource("11_0psq2")]
 position = Vector2(73, -627)
+scale = Vector2(1.2, 1.2)
 drop_value = 100
+
+[node name="Entity25" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-266, -133)
+
+[node name="Entity26" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-106, -198)
+
+[node name="Entity27" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-309, -230)
+
+[node name="Entity28" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-268, -308)
+
+[node name="Entity29" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-190, -260)
+
+[node name="Entity30" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(186, -782)
+
+[node name="Entity31" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(89, -734)
+
+[node name="Entity32" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(2, -661)
+
+[node name="Entity33" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(235, -687)
+
+[node name="Entity34" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(172, -660)
+
+[node name="Entity35" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(241, -614)
+
+[node name="Entity36" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(86, -818)
+
+[node name="Entity37" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-42, -746)
+
+[node name="Entity38" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(233, -846)
+
+[node name="Entity39" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-15, -847)
+
+[node name="Entity40" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(771.066, -181.261)
+
+[node name="Entity41" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(838, -173)
+
+[node name="Entity42" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(961, -107)
+
+[node name="Entity43" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(832, 37)
+
+[node name="Entity44" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(943, 73)
+
+[node name="Entity45" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(865, -106)
+
+[node name="Entity46" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(739, 76)
+
+[node name="Entity47" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(943, -190)
+
+[node name="Entity48" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(980, -15)
+
+[node name="Entity49" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(726, -84)
+
+[node name="Entity50" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(182, 808)
+
+[node name="Entity51" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-140, 657)
+
+[node name="Entity52" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-197, 605)
+
+[node name="Entity53" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(55, 665)
+
+[node name="Entity54" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(139, 725)
+
+[node name="Entity55" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-190, 781)
+
+[node name="Entity56" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(-237, 683)
+
+[node name="Entity57" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(40, 826)
+
+[node name="Entity58" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(199, 655)
+
+[node name="Entity59" parent="Entities" instance=ExtResource("11_0psq2")]
+position = Vector2(208, 600)
 
 [node name="Limits" type="Node2D" parent="."]
 
@@ -945,6 +1054,104 @@ texture = SubResource("GradientTexture1D_kh0k3")
 position = Vector2(-350, 0)
 scale = Vector2(0.2, 32)
 texture = SubResource("GradientTexture1D_kh0k3")
+
+[node name="StaticEnemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(767, -40)
+speed = 0.0
+
+[node name="Enemy7" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(114, 631)
+speed = 0.0
+
+[node name="Enemy8" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-121, 608)
+speed = 0.0
+
+[node name="Enemy14" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-691, 117)
+speed = 0.0
+
+[node name="Enemy15" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-736, -28)
+speed = 0.0
+
+[node name="Enemy16" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-872, 23)
+speed = 0.0
+
+[node name="Enemy17" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-819, 134)
+speed = 0.0
+
+[node name="Enemy18" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-640, -106)
+speed = 0.0
+
+[node name="Enemy19" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-36, -631)
+speed = 0.0
+
+[node name="Enemy20" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(128, -620)
+speed = 0.0
+
+[node name="Enemy21" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(54, -707)
+speed = 0.0
+
+[node name="Enemy22" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(33, -816)
+speed = 0.0
+
+[node name="Enemy23" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(167, -737)
+speed = 0.0
+
+[node name="Enemy24" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(244, -822)
+speed = 0.0
+
+[node name="Enemy9" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-186, 722)
+speed = 0.0
+
+[node name="Enemy10" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-69, 820)
+speed = 0.0
+
+[node name="Enemy11" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(-17, 719)
+speed = 0.0
+
+[node name="Enemy12" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(91, 772)
+speed = 0.0
+
+[node name="Enemy13" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(224, 765)
+speed = 0.0
+
+[node name="Enemy2" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(796, -154)
+speed = 0.0
+
+[node name="Enemy3" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(933, -160)
+speed = 0.0
+
+[node name="Enemy4" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(921, -54)
+speed = 0.0
+
+[node name="Enemy5" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(813, 67)
+speed = 0.0
+
+[node name="Enemy6" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
+position = Vector2(909, 41)
+speed = 0.0
 
 [connection signal="mouse_entered" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_entered_ui"]
 [connection signal="mouse_exited" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_exited_ui"]
