@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddx41tbe43roa"]
+[gd_scene load_steps=6 format=3 uid="uid://ddx41tbe43roa"]
 
 [ext_resource type="Script" path="res://scripts/buildings/table.gd" id="1_ad0oa"]
 
@@ -8,6 +8,11 @@ size = Vector2(40, 20)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lnfpj"]
 radius = 15.0
 height = 60.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q07mr"]
+
+[sub_resource type="Theme" id="Theme_ks83d"]
+Button/styles/focus = SubResource("StyleBoxEmpty_q07mr")
 
 [node name="Table" type="StaticBody2D"]
 collision_mask = 9
@@ -36,5 +41,13 @@ position = Vector2(0, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_lnfpj")
 
+[node name="Button" type="Button" parent="."]
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = 1.0
+theme = SubResource("Theme_ks83d")
+
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

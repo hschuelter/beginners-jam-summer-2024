@@ -7,11 +7,12 @@ const MAIN_MENU_SCENE = preload("res://scenes/main_menu.tscn")
 @onready var day_night_cycle = $DayNightCycle
 @onready var player = $Player
 @onready var wave_spawner = $WaveSpawner
-@onready var walls = $Walls
+@onready var gates = $Gates
 @onready var table = $Table
 @onready var danger_zone = %DangerZone
 @onready var game_over_ui = $CanvasLayer/GameOverUI
 @onready var victory_ui = $CanvasLayer/VictoryUI
+@onready var tutorial_ui = $CanvasLayer/TutorialUI
 
 
 func _ready():
@@ -32,6 +33,7 @@ func _ready():
 	
 	wave_spawner.update_danger_zone.connect(danger_zone.update_danger_zone)
 	wave_spawner.show_arrows.connect(player.arrows.show_arrows)
+	wave_spawner.explore_tutorial.connect(tutorial_ui.explore)
 	
 	audio_player.play_day()
 

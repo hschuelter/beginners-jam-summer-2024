@@ -19,6 +19,7 @@ func _process(delta):
 	if is_in_range:
 		if(Input.is_action_just_pressed("ui_accept")):
 			open_upgrade_ui.emit()
+	
 
 
 func _on_range_body_entered(body):
@@ -32,3 +33,9 @@ func _on_range_body_exited(body):
 		outline.visible = false
 		is_in_range = false
 		close_upgrade_ui.emit()
+
+func _on_button_pressed():
+	print("oi")
+	outline.visible = true
+	is_in_range = true
+	open_upgrade_ui.emit()

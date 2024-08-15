@@ -6,7 +6,7 @@
 
 [node name="GunTool" instance=ExtResource("1_m0gro")]
 script = ExtResource("2_cfvan")
-bullet_damage = 3.0
+bullet_damage = 6.0
 target = Vector2(0, 0)
 
 [node name="ToolSprite" parent="." index="0"]

@@ -123,7 +123,7 @@ animations = [{
 
 [node name="EnemyHeavy" instance=ExtResource("1_2ay7i")]
 max_health = 200.0
-drop_value = 30
+drop_value = 50
 speed = 25.0
 damage = 40.0
 
@@ -133,4 +133,4 @@ animation = &"attack"
 frame_progress = 0.0687091
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@17524")
+blackboard = NodePath("@Node@51216")
