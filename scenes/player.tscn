@@ -105,6 +105,7 @@ radius = 5.71429
 height = 20.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
 collision_layer = 9
 script = ExtResource("1_upa1n")
 max_health = 50

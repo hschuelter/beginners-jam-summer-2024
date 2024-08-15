@@ -34,7 +34,7 @@ var slow_value: float = 0.5
 var building_on_range: Node = null
 var can_attack: bool = true
 
-var default_speed: float = 0
+var default_speed: float = 35
 
 static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _name: String = "") -> Enemy:
 	var new_enemy: Enemy = ENEMY_SCENE.instantiate()
@@ -46,6 +46,12 @@ static func create_enemy(_player: Player, _target: Vector2, _world: Node2D, _nam
 	return new_enemy
 
 func _ready():
+	if world == null:
+		world = get_parent().get_parent()
+		
+	if player == null:
+		player = get_parent().get_parent().get_node("Player")
+		
 	health_component.max_health = max_health
 	health_component.current_health = max_health
 	health_component.die.connect(die)
@@ -54,7 +60,9 @@ func _ready():
 	drop_component.drop_value = drop_value
 	drop_component.world = world
 	
-	default_speed = speed
+	if speed != 0:
+		default_speed = speed
+	
 	game_over.connect(world.game_over)
 	attack_cd_timer.timeout.connect(_on_attack_cd_timeout)
 	
@@ -73,10 +81,10 @@ func move(direction: Vector2, delta: float) -> void:
 		
 	self.global_position += direction * _speed * delta
 
+
 func die():
 	drop_component.drop()
 	queue_free()
-
 
 
 func attack(target: Node) -> void:
@@ -103,6 +111,8 @@ func is_player_in_fov() -> bool:
 
 
 func get_player_position() -> Vector2:
+	speed = default_speed
+	
 	return (fov
 		.get_overlapping_areas()
 		.filter(func (a): return true if a.get_parent() is Player else false)[0]
@@ -164,4 +174,4 @@ func _on_hitbox_body_exited(body):
 
 func _on_attack_cd_timeout():
 	can_attack = true
-	speed = default_speed
+	speed = 0

@@ -171,6 +171,7 @@ position = Vector2(0, 11)
 position = Vector2(0, -15)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+visible = false
 collision_layer = 0
 collision_mask = 12
 
@@ -178,11 +179,13 @@ collision_mask = 12
 shape = SubResource("RectangleShape2D_k68l6")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_8p6sx")
 
 [node name="FOV" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -190,7 +193,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-blackboard = NodePath("@Node@17520")
+blackboard = NodePath("@Node@20461")
 actor = NodePath("..")
 
 [connection signal="timeout" from="SlowTimer" to="." method="_on_slow_timer_timeout"]

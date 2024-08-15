@@ -3,24 +3,28 @@
 [ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_2rmwr"]
 [ext_resource type="PackedScene" uid="uid://j8exgj216fpn" path="res://scenes/components/health_component.tscn" id="2_oi41t"]
 [ext_resource type="PackedScene" uid="uid://nffcgvpomxi8" path="res://scenes/components/drop_component.tscn" id="3_6an2j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6kgh"]
-size = Vector2(40, 40)
+[ext_resource type="Texture2D" uid="uid://b0mqkd23xbvbt" path="res://assets/art/box.png" id="4_2s5w2"]
 
 [node name="Entity" type="StaticBody2D" groups=["entity"]]
 script = ExtResource("1_2rmwr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -40.0
 offset_right = 20.0
 color = Color(0.404511, 0.404511, 0.404511, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -20)
-shape = SubResource("RectangleShape2D_u6kgh")
-
 [node name="HealthComponent" parent="." instance=ExtResource("2_oi41t")]
 position = Vector2(0, 2)
+scale = Vector2(0.95, 0.95)
 
 [node name="DropComponent" parent="." instance=ExtResource("3_6an2j")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("4_2s5w2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, -21, 11, -15, 11, -5, 0, 1, -10, -4, -10, -15)
