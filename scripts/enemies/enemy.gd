@@ -11,6 +11,7 @@ signal game_over
 @onready var fov: Area2D = $FOV
 @onready var hitbox: Area2D = $Hitbox 
 @onready var hurtbox = $Hurtbox
+@onready var raycast = $RayCast2D
 @onready var drop_component = $DropComponent
 @onready var health_component = $HealthComponent
 @onready var slow_timer = $SlowTimer
@@ -24,6 +25,7 @@ signal game_over
 @export var drop_value: int = 2
 @export var speed: float = 35.0
 @export var damage: float = 10.0
+@export var is_static: bool = false
 
 var player: Player
 var target = Vector2.ZERO
@@ -71,9 +73,7 @@ func _process(delta):
 	var direction = target - self.global_position
 	move(direction.normalized(), delta)
 	handle_animation(direction)
-	
-	#if(self.global_position.distance_to(target) < 5):
-		#game_over.emit()
+
 
 func move(direction: Vector2, delta: float) -> void:
 	var _speed = speed
@@ -102,7 +102,8 @@ func attack(target: Node) -> void:
 		speed = 0
 		attack_cd_timer.start()
 		await get_tree().create_timer(0.25).timeout
-		target.take_damage(damage)
+		if target != null:
+			target.take_damage(damage)
 
 
 func set_target_position(pos: Vector2) -> void:
@@ -111,20 +112,31 @@ func set_target_position(pos: Vector2) -> void:
 
 
 func is_player_in_fov() -> bool:
-	return not (fov
-		.get_overlapping_areas()
-		.filter(func (a): return true if a.get_parent() is Player else false)
-		.is_empty()
+	var player_in_fov = (fov
+			.get_overlapping_areas()
+			.filter(func (a): return true if a.get_parent() is Player else false)
 	)
+
+	if player_in_fov.is_empty():
+		raycast.enabled = false
+		return false
+
+	raycast.enabled = true
+	raycast.target_position = player_in_fov[0].global_position - raycast.global_position
+	var raycast_collider = raycast.get_collider()
+	if raycast_collider is Node and raycast_collider.is_in_group("player"):
+		return true
+
+	return false
 
 
 func get_player_position() -> Vector2:
 	speed = default_speed
-	
+
 	return (fov
-		.get_overlapping_areas()
-		.filter(func (a): return true if a.get_parent() is Player else false)[0]
-		.global_position
+			.get_overlapping_areas()
+			.filter(func (a): return true if a.get_parent() is Player else false)[0]
+			.global_position
 	)
 
 
@@ -182,4 +194,11 @@ func _on_hitbox_body_exited(body):
 
 func _on_attack_cd_timeout():
 	can_attack = true
-	speed = 0
+	if not is_static:
+		speed = default_speed
+
+
+func _on_fov_body_exited(body):
+	if body is Player and is_static:
+		speed = 0
+		target = Vector2.ZERO

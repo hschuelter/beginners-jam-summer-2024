@@ -739,7 +739,7 @@ vertical_alignment = 1
 [node name="DayNightCycle" type="CanvasModulate" parent="."]
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
-initial_hour = 7
+initial_hour = 15
 
 [node name="Table" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_lut6c")]
 position = Vector2(40, -25)
@@ -1068,98 +1068,122 @@ polygon = PackedVector2Array(-454, 62, -74, 56, -73, 123, -390, 129, -390, 670, 
 [node name="Enemy" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(767, -40)
 speed = 0.0
+is_static = true
 
 [node name="Enemy7" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(114, 631)
 speed = 0.0
+is_static = true
 
 [node name="Enemy8" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-121, 608)
 speed = 0.0
+is_static = true
 
 [node name="Enemy14" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-691, 117)
 speed = 0.0
+is_static = true
 
 [node name="Enemy15" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-736, -28)
 speed = 0.0
+is_static = true
 
 [node name="Enemy16" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-872, 23)
 speed = 0.0
+is_static = true
 
 [node name="Enemy17" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-819, 134)
 speed = 0.0
+is_static = true
 
 [node name="Enemy18" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-640, -106)
 speed = 0.0
+is_static = true
 
 [node name="Enemy19" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-36, -631)
 speed = 0.0
+is_static = true
 
 [node name="Enemy20" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(128, -620)
 speed = 0.0
+is_static = true
 
 [node name="Enemy21" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(54, -707)
 speed = 0.0
+is_static = true
 
 [node name="Enemy22" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(33, -816)
 speed = 0.0
+is_static = true
 
 [node name="Enemy23" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(167, -737)
 speed = 0.0
+is_static = true
 
 [node name="Enemy24" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(244, -822)
 speed = 0.0
+is_static = true
 
 [node name="Enemy9" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-186, 722)
 speed = 0.0
+is_static = true
 
 [node name="Enemy10" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-69, 820)
 speed = 0.0
+is_static = true
 
 [node name="Enemy11" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(-17, 719)
 speed = 0.0
+is_static = true
 
 [node name="Enemy12" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(91, 772)
 speed = 0.0
+is_static = true
 
 [node name="Enemy13" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(224, 765)
 speed = 0.0
+is_static = true
 
 [node name="Enemy2" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(796, -154)
 speed = 0.0
+is_static = true
 
 [node name="Enemy3" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(933, -160)
 speed = 0.0
+is_static = true
 
 [node name="Enemy4" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(921, -54)
 speed = 0.0
+is_static = true
 
 [node name="Enemy5" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(813, 67)
 speed = 0.0
+is_static = true
 
 [node name="Enemy6" parent="StaticEnemies" instance=ExtResource("17_11yxb")]
 position = Vector2(909, 41)
 speed = 0.0
+is_static = true
 
 [connection signal="mouse_entered" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_entered_ui"]
 [connection signal="mouse_exited" from="CanvasLayer/ToolboxUI/BG" to="." method="_on_mouse_exited_ui"]

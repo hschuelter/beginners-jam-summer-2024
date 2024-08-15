@@ -18,18 +18,8 @@ func tick(actor: Node, _blackboard: Blackboard) -> int:
 		printerr("error: %s must implement set_target_position(Vector2) method" % actor.name)
 		return FAILURE
 		
-	#var dist: Array[Distance]
-	#for tg in get_static_targets():
-		#dist.append(
-			#_init_distance(
-				#tg.global_position, 
-				#actor.global_position.distance_to(tg.global_position)
-			#)
-		#)
-	#
-	#dist.sort_custom(func(a, b): return true if a.distance < b.distance else false)
-	#actor.set_target_position(actor.global_position)
-	actor.set_target_position(Vector2.ZERO)
+	if !actor.is_static:
+		actor.set_target_position(Vector2.ZERO)
 
 	return SUCCESS
 

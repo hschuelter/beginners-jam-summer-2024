@@ -193,8 +193,11 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-blackboard = NodePath("@Node@30421")
+blackboard = NodePath("@Node@19019")
 actor = NodePath("..")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(41, 0)
 
 [connection signal="timeout" from="SlowTimer" to="." method="_on_slow_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
@@ -203,3 +206,4 @@ actor = NodePath("..")
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_exited" from="FOV" to="." method="_on_fov_body_exited"]
