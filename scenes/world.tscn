@@ -739,7 +739,6 @@ vertical_alignment = 1
 [node name="DayNightCycle" type="CanvasModulate" parent="."]
 script = ExtResource("1_jqcbh")
 gradient = SubResource("GradientTexture1D_yl0w3")
-initial_hour = 15
 
 [node name="Table" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_lut6c")]
 position = Vector2(40, -25)
