@@ -1,7 +1,7 @@
 class_name Bullet extends Area2D
 
 const BULLET_SCENE: Resource = preload("res://scenes/bullet/bullet.tscn")
-const SPEED: float = 300
+const SPEED: float = 400
 
 var damage: float = 3
 var target: Vector2

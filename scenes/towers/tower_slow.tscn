@@ -89,7 +89,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kfgak")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ibegk")
 }, {
 "duration": 1.0,
@@ -115,7 +115,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 10.0
+"speed": 16.0
 }]
 
 [node name="TowerSlow" groups=["slow_tower"] instance=ExtResource("1_mjnln")]

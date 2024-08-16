@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxlyp")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_phf0o")
 }, {
 "duration": 1.0,
@@ -118,19 +118,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 9.0
 }]
 
 [node name="EnemyHeavy" instance=ExtResource("1_2ay7i")]
-max_health = 200.0
-drop_value = 50
+max_health = 150.0
 speed = 25.0
 damage = 40.0
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_dbrdl")
-animation = &"attack"
-frame_progress = 0.0687091
+autoplay = ""
+frame_progress = 0.0
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@51216")
+blackboard = NodePath("@Node@258282")

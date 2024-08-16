@@ -68,3 +68,6 @@ offset = Vector2(10.34, -2)
 
 [node name="ActionTimer" parent="." index="1"]
 one_shot = true
+
+[node name="SFX" parent="." index="2"]
+volume_db = -10.0

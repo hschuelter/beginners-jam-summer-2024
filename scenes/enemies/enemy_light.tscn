@@ -72,7 +72,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6xtnl")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_j31my")
 }, {
 "duration": 1.0,
@@ -118,18 +118,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 9.0
 }]
 
 [node name="EnemyLight" instance=ExtResource("1_0frv0")]
 max_health = 70.0
-drop_value = 20
 damage = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_tiekk")
-animation = &"attack"
-frame_progress = 0.429485
+autoplay = ""
+frame_progress = 0.159495
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@65815")
+blackboard = NodePath("@Node@259656")

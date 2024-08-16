@@ -17,3 +17,6 @@ offset = Vector2(10.34, -5.14)
 
 [node name="Marker2D" type="Marker2D" parent="." index="2"]
 position = Vector2(11, -3)
+
+[node name="SFX" parent="." index="3"]
+volume_db = -10.0

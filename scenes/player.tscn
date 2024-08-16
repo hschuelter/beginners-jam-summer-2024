@@ -41,13 +41,13 @@ region = Rect2(64, 0, 16, 32)
 atlas = ExtResource("2_146nw")
 region = Rect2(0, 32, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4b7eu"]
-atlas = ExtResource("2_146nw")
-region = Rect2(32, 32, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_efpyc"]
 atlas = ExtResource("2_146nw")
 region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b7eu"]
+atlas = ExtResource("2_146nw")
+region = Rect2(32, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tg61"]
 atlas = ExtResource("2_146nw")
@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pe2hg")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_2drji")
 }, {
 "duration": 1.0,
@@ -77,17 +77,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ky22r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4b7eu")
+"texture": SubResource("AtlasTexture_efpyc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_efpyc")
+"texture": SubResource("AtlasTexture_4b7eu")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8tg61")
@@ -97,7 +97,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 6.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_humg7"]
@@ -154,7 +154,7 @@ position = Vector2(0, -5.71429)
 sprite_frames = SubResource("SpriteFrames_rmic1")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.475238
+frame_progress = 0.0771135
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
 visible = false
