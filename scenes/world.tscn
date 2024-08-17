@@ -4136,7 +4136,7 @@ vertical_alignment = 1
 [node name="Cost" type="Label" parent="CanvasLayer/UpgradeUI/VBoxContainer/BasicUpgrade"]
 layout_mode = 0
 offset_left = 50.0
-offset_right = 100.0
+offset_right = 98.0
 offset_bottom = 16.0
 text = "Cost: 50 "
 label_settings = ExtResource("3_7ewr0")
@@ -4167,7 +4167,7 @@ vertical_alignment = 1
 [node name="Cost" type="Label" parent="CanvasLayer/UpgradeUI/VBoxContainer/SlowUpgrade"]
 layout_mode = 0
 offset_left = 50.0
-offset_right = 100.0
+offset_right = 98.0
 offset_bottom = 16.0
 text = "Cost: 60 "
 label_settings = ExtResource("3_7ewr0")
@@ -4198,7 +4198,7 @@ vertical_alignment = 1
 [node name="Cost" type="Label" parent="CanvasLayer/UpgradeUI/VBoxContainer/SniperUpgrade"]
 layout_mode = 0
 offset_left = 50.0
-offset_right = 100.0
+offset_right = 98.0
 offset_bottom = 16.0
 text = "Cost: 80 "
 label_settings = ExtResource("3_7ewr0")

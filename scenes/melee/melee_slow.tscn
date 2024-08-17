@@ -4,4 +4,6 @@
 [ext_resource type="Script" path="res://scripts/melee/melee_slow.gd" id="2_cpbc5"]
 
 [node name="MeleeSlow" instance=ExtResource("1_mscj2")]
+collision_layer = 2049
+collision_mask = 2049
 script = ExtResource("2_cpbc5")
