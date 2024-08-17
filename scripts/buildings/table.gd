@@ -1,5 +1,6 @@
 class_name Table extends StaticBody2D
 
+@onready var upgrade_label = $UpgradeLabel
 signal open_upgrade_ui
 signal close_upgrade_ui
 
@@ -38,3 +39,4 @@ func _on_button_pressed():
 	outline.visible = true
 	is_in_range = true
 	open_upgrade_ui.emit()
+
