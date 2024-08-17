@@ -21,7 +21,6 @@ func _process(delta):
 			open_upgrade_ui.emit()
 	
 
-
 func _on_range_body_entered(body):
 	if body.is_in_group("player"):
 		outline.visible = true

@@ -63,3 +63,34 @@ func upgrade_sniper() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func reset_values():
+	basic_upgrade = 3.0
+	basic_price = 10
+	basic_upgrade_price = 50
+	basic_level = 1
+
+	basic_damage = 5
+	basic_range = 60
+	basic_cooldown = 1.0
+	#endregion
+
+	#region Slow Tower Upgrades
+	slow_upgrade = 1.2
+	slow_price = 20
+	slow_upgrade_price = 40
+	slow_level = 1
+
+	slow_damage = 2
+	slow_range = 40
+	slow_cooldown = 1.0
+	slow_value = 0.5
+	#endregion
+	#region Sniper Tower Upgrades
+	sniper_upgrade = 25
+	sniper_price = 30
+	sniper_upgrade_price = 30
+	sniper_level = 1
+	sniper_damage = 20
+	sniper_range = 160
+	sniper_cooldown = 3.0

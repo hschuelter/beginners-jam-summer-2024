@@ -1,6 +1,7 @@
 extends Node2D
 
 const world_scene = "res://scenes/world.tscn"
+const cutscene = "res://scenes/cutscene/cut_scene.tscn"
 
 @onready var start_game_button = $CanvasLayer/StartGameButton
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D

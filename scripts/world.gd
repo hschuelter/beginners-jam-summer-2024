@@ -36,16 +36,14 @@ func _ready():
 	wave_spawner.explore_tutorial.connect(tutorial_ui.explore)
 	
 	audio_player.play_day()
-
+	UpgradeManager.reset_values()
 func _process(delta):
 	pass
 
 func _on_basic_button_pressed():
 	player.current_tower = 0
-
 func _on_slow_button_pressed():
 	player.current_tower = 1
-
 func _on_sniper_button_pressed():
 	player.current_tower = 2
 

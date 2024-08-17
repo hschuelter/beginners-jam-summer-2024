@@ -35,7 +35,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yboyn")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_133tg")
 }, {
 "duration": 1.0,
@@ -52,7 +52,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 8.0
+"speed": 20.0
 }]
 
 [node name="Tower" type="Node2D"]

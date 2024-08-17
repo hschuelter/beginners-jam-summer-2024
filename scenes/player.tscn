@@ -15,7 +15,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_188pc"]
 radius = 4.28571
-height = 17.1429
+height = 14.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bps37"]
 atlas = ExtResource("2_146nw")
@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_humg7"]
-radius = 12.8571
+radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1e41"]
 radius = 5.71429
@@ -144,8 +144,7 @@ texture = ExtResource("10_44paj")
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-5.96046e-08, 7.14286)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_188pc")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
@@ -154,7 +153,7 @@ position = Vector2(0, -5.71429)
 sprite_frames = SubResource("SpriteFrames_rmic1")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.0771135
+frame_progress = 0.458839
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -166,10 +165,9 @@ frame_progress = 0.483189
 offset = Vector2(6, -2)
 
 [node name="PickupRange" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRange"]
-position = Vector2(-1.19209e-07, 7.14286)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_humg7")
 
 [node name="Hurtbox" type="Area2D" parent="."]

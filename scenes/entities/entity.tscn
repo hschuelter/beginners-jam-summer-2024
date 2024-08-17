@@ -7,6 +7,7 @@
 
 [node name="Entity" type="StaticBody2D" groups=["entity"]]
 script = ExtResource("1_2rmwr")
+drop_value = 7
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -16,14 +17,15 @@ offset_right = 20.0
 color = Color(0.404511, 0.404511, 0.404511, 1)
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oi41t")]
-position = Vector2(0, 2)
+position = Vector2(0, 11)
 scale = Vector2(0.95, 0.95)
 
 [node name="DropComponent" parent="." instance=ExtResource("3_6an2j")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(-0.2, 0.799999)
 texture = ExtResource("4_2s5w2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.2, 11.8)
 polygon = PackedVector2Array(0, -19, 8, -19, 8, -3, 0, -3, -8, -3, -8, -19)

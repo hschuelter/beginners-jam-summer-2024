@@ -49,13 +49,19 @@ func action() -> void:
 		update_values()
 		if current_tower == Towers.BASIC:
 			tower = TowerBasic.create_tower_basic(basic_damage, basic_range, basic_cooldown)
-			cost = basic_price
+			cost = UpgradeManager.basic_price
+			UpgradeManager.basic_price = int(UpgradeManager.basic_price * 1.1)
+			
 		elif current_tower == Towers.SLOW:
 			tower = TowerSlow.create_tower_slow(slow_damage, slow_range, slow_cooldown, slow_value)
-			cost = slow_price
+			cost = UpgradeManager.slow_price
+			UpgradeManager.slow_price = int(UpgradeManager.slow_price * 1.1)
+			
 		elif current_tower == Towers.SNIPER:
 			tower = TowerSniper.create_tower_sniper(sniper_damage, sniper_range, sniper_cooldown)
-			cost = sniper_price
+			cost = UpgradeManager.sniper_price
+			UpgradeManager.sniper_price = int(UpgradeManager.sniper_price *1.1)
+			
 			
 		var mouse_position = (get_global_mouse_position() + Vector2(GRID_SIZE/2, GRID_SIZE/2)) / GRID_SIZE
 		
@@ -68,12 +74,12 @@ func action() -> void:
 
 func evaluate_cost(tower: Towers) -> float:
 	if tower == Towers.BASIC:
-		return basic_price
+		return UpgradeManager.basic_price
 	elif tower == Towers.SLOW:
-		return slow_price
+		return UpgradeManager.slow_price
 	elif tower == Towers.SNIPER:
 		return sniper_price
-	return basic_price
+	return UpgradeManager.basic_price
 	
 
 func update_values():

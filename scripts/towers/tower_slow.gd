@@ -20,6 +20,7 @@ func _ready():
 	super._ready()
 	sfx.stream = SLOW_SFX
 
+
 func shoot() -> void:
 	var melee_slow: MeleeSlow = MeleeSlow.create_melee_slow(tower_damage, tower_range, tower_slow, "Melee Slow")
 	turret_sprite.play("shoot")

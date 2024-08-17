@@ -30,7 +30,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rsa0o")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_hjoft")
 }, {
 "duration": 1.0,
@@ -47,7 +47,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 8.0
+"speed": 20.0
 }]
 
 [node name="TowerSniper" groups=["sniper_tower"] instance=ExtResource("1_8pmw2")]
@@ -61,8 +61,6 @@ color = Color(0.023221, 0.429784, 0.0448467, 1)
 
 [node name="TurretSprite" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_qcpdu")
-frame = 0
-frame_progress = 0.0
 
 [node name="Marker2D" parent="TurretSprite" index="0"]
 position = Vector2(-22, 0)
