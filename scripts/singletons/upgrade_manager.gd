@@ -12,7 +12,7 @@ var basic_cooldown: float = 1.0
 #endregion
 
 #region Slow Tower Upgrades
-var slow_upgrade = 1.2
+var slow_upgrade = 1.15
 var slow_price = 20
 var slow_upgrade_price = 40
 var slow_level = 1
@@ -20,7 +20,7 @@ var slow_level = 1
 var slow_damage: float = 2
 var slow_range: float = 40
 var slow_cooldown: float = 1.0
-var slow_value: float = 0.5
+var slow_value: float = 0.85 
 #endregion
 
 #region Sniper Tower Upgrades
@@ -76,7 +76,7 @@ func reset_values():
 	#endregion
 
 	#region Slow Tower Upgrades
-	slow_upgrade = 1.2
+	slow_upgrade = 1.15
 	slow_price = 20
 	slow_upgrade_price = 40
 	slow_level = 1
@@ -84,7 +84,7 @@ func reset_values():
 	slow_damage = 2
 	slow_range = 40
 	slow_cooldown = 1.0
-	slow_value = 0.5
+	slow_value = 0.85
 	#endregion
 	#region Sniper Tower Upgrades
 	sniper_upgrade = 25
