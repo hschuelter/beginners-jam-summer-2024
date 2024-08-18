@@ -124,7 +124,7 @@ animations = [{
 [node name="EnemyLight" instance=ExtResource("1_0frv0")]
 max_health = 60.0
 drop_value = 3
-damage = 20.0
+damage = 15.0
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_tiekk")
@@ -132,4 +132,4 @@ autoplay = ""
 frame_progress = 0.159495
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@24663")
+blackboard = NodePath("@Node@62587")

@@ -125,7 +125,7 @@ animations = [{
 max_health = 110.0
 drop_value = 1
 speed = 25.0
-damage = 40.0
+damage = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_dbrdl")
@@ -133,4 +133,4 @@ autoplay = ""
 frame_progress = 0.0
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@25262")
+blackboard = NodePath("@Node@62011")

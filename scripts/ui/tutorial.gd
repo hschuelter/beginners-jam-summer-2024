@@ -21,6 +21,6 @@ func explore():
 	self.visible = true
 	var tween := create_tween()
 	tween.tween_property(label, "visible_ratio", 1.0, tween_duration)
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(9).timeout
 	self.visible = false
 	
