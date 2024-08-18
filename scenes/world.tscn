@@ -4920,7 +4920,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WAlls/Area2D"]
-polygon = PackedVector2Array(-87, -71, -80, -88, -13, -88, -13, -73, -77, -74, -81, -71, -81, -18, -87, -18)
+polygon = PackedVector2Array(-87, -71, -80, -88, -10, -87, -10, -73, -77, -74, -81, -71, -80, -13, -87, -14)
 
 [node name="Area2D2" type="StaticBody2D" parent="WAlls"]
 collision_layer = 3
@@ -4928,7 +4928,7 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WAlls/Area2D2"]
 position = Vector2(120, 8)
-polygon = PackedVector2Array(-40, -96, -32, -81, -32, -25, -38, -25, -38, -81, -108, -80, -108, -96)
+polygon = PackedVector2Array(-40, -96, -32, -81, -32, -22, -39, -21, -38, -81, -109, -82, -110, -95)
 
 [node name="Area2D3" type="StaticBody2D" parent="WAlls"]
 collision_layer = 3
@@ -4936,7 +4936,7 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WAlls/Area2D3"]
 position = Vector2(31, 130)
-polygon = PackedVector2Array(-112, -49, -40, -49, -40, -34, -112, -35, -118, -49, -118, -110, -112, -110)
+polygon = PackedVector2Array(-112, -49, -40, -49, -40, -34, -112, -35, -118, -49, -118, -118, -112, -116)
 
 [node name="Area2D4" type="StaticBody2D" parent="WAlls"]
 collision_layer = 3
@@ -4944,7 +4944,7 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WAlls/Area2D4"]
 position = Vector2(173, 132)
-polygon = PackedVector2Array(-91, -52, -91, -116, -86, -116, -86, -52, -91, -37, -163, -36, -163, -52)
+polygon = PackedVector2Array(-91, -52, -91, -120, -86, -119, -86, -52, -91, -37, -163, -36, -163, -52)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WAlls"]
 collision_layer = 9
