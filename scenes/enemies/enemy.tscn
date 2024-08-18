@@ -208,7 +208,7 @@ visible = false
 shape = SubResource("RectangleShape2D_8p6sx")
 
 [node name="FOV" type="Area2D" parent="."]
-visible = false
+scale = Vector2(1.3, 1.3)
 collision_layer = 0
 collision_mask = 8
 
@@ -216,11 +216,12 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_4tijo")
 
 [node name="DefaultAi" parent="." node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("5_8manu")]
-blackboard = NodePath("@Node@26468")
+blackboard = NodePath("@Node@18085")
 actor = NodePath("..")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(41, 0)
+collision_mask = 3
 
 [node name="sfx" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0
