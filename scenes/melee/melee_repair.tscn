@@ -4,4 +4,6 @@
 [ext_resource type="Script" path="res://scripts/melee/melee_repair.gd" id="2_0tuao"]
 
 [node name="MeleeRepair" instance=ExtResource("1_eyi0p")]
+collision_layer = 11
+collision_mask = 3
 script = ExtResource("2_0tuao")

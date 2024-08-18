@@ -1,6 +1,8 @@
 class_name GunTool extends Tool
 
 @export var bullet_damage: float = 6.0
+@export var bullet_duration: float = 0.5
+
 @export var target = Vector2.ZERO
 @onready var marker_2d = $Marker2D
 
@@ -13,7 +15,7 @@ func _ready():
 	super._ready()
 	sfx.stream = SHOOT
 	bullet_timer = Timer.new()
-	bullet_timer.wait_time = 0.135
+	bullet_timer.wait_time = bullet_duration
 	bullet_timer.timeout.connect(_on_bullet_timer_timeout)
 	add_child(bullet_timer)
 
