@@ -60,6 +60,7 @@ script = ExtResource("2_o8d2x")
 damage = 10
 
 [node name="ToolSprite" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_5rgb1")
 animation = &"shoot"
 frame = 4

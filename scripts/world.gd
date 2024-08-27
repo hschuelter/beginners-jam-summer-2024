@@ -2,6 +2,7 @@ extends Node2D
 
 const MAIN_MENU_SCENE = preload("res://scenes/main_menu.tscn")
 
+@onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var audio_player = $AudioPlayer
 @onready var canvas_layer = $CanvasLayer
 @onready var day_night_cycle = $DayNightCycle
@@ -14,6 +15,7 @@ const MAIN_MENU_SCENE = preload("res://scenes/main_menu.tscn")
 @onready var victory_ui = $CanvasLayer/VictoryUI
 @onready var tutorial_ui = $CanvasLayer/TutorialUI
 
+var paused = false
 
 func _ready():
 	game_over_ui.visible = false
@@ -37,8 +39,7 @@ func _ready():
 	
 	audio_player.play_day()
 	UpgradeManager.reset_values()
-func _process(delta):
-	pass
+
 
 func _on_basic_button_pressed():
 	player.current_tower = 0
@@ -79,3 +80,4 @@ func player_victory():
 func _on_main_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_packed(MAIN_MENU_SCENE)
+	

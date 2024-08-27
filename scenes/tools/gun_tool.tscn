@@ -11,6 +11,7 @@ bullet_duration = 0.5
 target = Vector2(0, 0)
 
 [node name="ToolSprite" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("3_66yr0")
 animation = &"shoot"
 autoplay = "idle"

@@ -4,14 +4,14 @@ extends Control
 
 const TIME = 5
 
-func _ready():
-	self.visible = true
-	await get_tree().create_timer(4).timeout
-	label.text = "They will probably arrive at 18:00..."
-	await get_tree().create_timer(4).timeout
-	label.text = "I need to get resources to build towers to defend my family!"
-	await get_tree().create_timer(5).timeout
-	self.visible = false
+#func _ready():
+	#self.visible = true
+	#await get_tree().create_timer(4).timeout
+	#label.text = "They will probably arrive at 18:00..."
+	#await get_tree().create_timer(4).timeout
+	#label.text = "I need to get resources to build towers to defend my family!"
+	#await get_tree().create_timer(5).timeout
+	#self.visible = false
 
 func explore():
 	await get_tree().create_timer(5).timeout

@@ -20,4 +20,3 @@ func action() -> void:
 		melee.global_position = self.global_position + (target.normalized() * 20)
 		world.add_child(melee)
 		action_timer.start()
-

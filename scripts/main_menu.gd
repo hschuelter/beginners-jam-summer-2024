@@ -18,5 +18,5 @@ func _on_start_game_button_pressed():
 	animation_player.play("begin")
 
 func start_game():
-	get_tree().change_scene_to_file(world_scene)
+	get_tree().change_scene_to_file(cutscene)
 	

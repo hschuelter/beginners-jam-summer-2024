@@ -132,4 +132,4 @@ autoplay = ""
 frame_progress = 0.159495
 
 [node name="DefaultAi" parent="." index="11" node_paths=PackedStringArray("blackboard")]
-blackboard = NodePath("@Node@62587")
+blackboard = NodePath("@Node@17349")

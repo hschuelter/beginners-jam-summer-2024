@@ -95,6 +95,7 @@ script = ExtResource("2_vgvxk")
 repair = 10
 
 [node name="ToolSprite" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_0n52u")
 animation = &"shoot"
 autoplay = "idle"
