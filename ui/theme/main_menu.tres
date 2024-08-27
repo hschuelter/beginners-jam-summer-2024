@@ -4,15 +4,48 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjs41"]
 bg_color = Color(0.758192, 0.758192, 0.758192, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 1.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xshwq"]
 bg_color = Color(0.756863, 0.756863, 0.756863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 1.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsan5"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.431373)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+expand_margin_left = 3.0
+expand_margin_top = 1.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6jih"]
 bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 3.0
+expand_margin_top = 1.0
+expand_margin_right = 3.0
+expand_margin_bottom = 1.0
 
 [resource]
 default_font = ExtResource("1_sqmww")
